@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="1안 · 영종도 1박 2일 일정표">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>영종도 1박 2일</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Gothic+A1:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:      #FAF8F4;
+    --surface:     #FFFFFF;
+    --sunk:        #F1EEE7;
+    --ink:         #0E2A2E;
+    --ink-soft:    #3C565B;
+    --muted:       #6E8489;
+    --line:        #DEDAD1;
+    --line-soft:   #EBE7DE;
+    --accent:         #1F6E78;
+    --accent-deep:    #0F454C;
+    --accent-wash:    #E2F0F1;
+    --accent2:      #C2573A;
+    --accent2-wash: #F8E6DF;
+    --warn:        #87680F;
+    --warn-wash:   #F6F0DA;
+    --hero-from:   #0F454C;
+    --hero-to:     #1F6E78;
+    --hero-ink:    #F3F7F6;
+    --hero-dim:    #A8D2D6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0B1618;
+      --surface:     #142124;
+      --sunk:        #0F1C1F;
+      --ink:         #E9EEED;
+      --ink-soft:    #B5C4C5;
+      --muted:       #83989B;
+      --line:        #29393D;
+      --line-soft:   #1D2C30;
+      --accent:         #7CC4CC;
+      --accent-deep:    #0D3237;
+      --accent-wash:    #14292C;
+      --accent2:      #E58C6E;
+      --accent2-wash: #301C15;
+      --warn:        #D6B65C;
+      --warn-wash:   #2B2514;
+      --hero-from:   #0B2C30;
+      --hero-to:     #17545B;
+      --hero-ink:    #EAF2F1;
+      --hero-dim:    #9CCAD0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:      #0B1618;
+    --surface:     #142124;
+    --sunk:        #0F1C1F;
+    --ink:         #E9EEED;
+    --ink-soft:    #B5C4C5;
+    --muted:       #83989B;
+    --line:        #29393D;
+    --line-soft:   #1D2C30;
+    --accent:         #7CC4CC;
+    --accent-deep:    #0D3237;
+    --accent-wash:    #14292C;
+    --accent2:      #E58C6E;
+    --accent2-wash: #301C15;
+    --warn:        #D6B65C;
+    --warn-wash:   #2B2514;
+    --hero-from:   #0B2C30;
+    --hero-to:     #17545B;
+    --hero-ink:    #EAF2F1;
+    --hero-dim:    #9CCAD0;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Gothic A1", system-ui, -apple-system, "Malgun Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.72;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+  /* ═══════════ 히어로 ═══════════ */
+
+  .hero {
+    background: linear-gradient(160deg, var(--hero-from) 0%, var(--hero-to) 100%);
+    color: var(--hero-ink);
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 0;
+  }
+  .hero-inner { max-width: 800px; margin: 0 auto; padding: 60px 20px 44px; position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--hero-dim); margin: 0 0 20px;
+  }
+  .hero h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(46px, 13vw, 88px);
+    line-height: 0.98; letter-spacing: -0.04em;
+    margin: 0; color: var(--hero-ink);
+  }
+  .hero h1 .sub {
+    display: flex; align-items: baseline; justify-content: flex-start;
+    gap: 18px; flex-wrap: wrap;
+    font-size: clamp(24px, 6.5vw, 42px);
+    font-weight: 400; letter-spacing: -0.02em;
+    color: var(--hero-dim); margin-top: 6px;
+  }
+  .hero h1 .byline {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: lowercase;
+    color: var(--hero-dim); opacity: 0.8;
+    white-space: nowrap; align-self: flex-end;
+    padding-bottom: 6px;
+  }
+  .hero-date {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(13px, 3.4vw, 16px); letter-spacing: 0.1em;
+    color: var(--hero-ink); margin: 26px 0 0;
+    font-variant-numeric: tabular-nums;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.22);
+    display: inline-block;
+  }
+  .hero-line { font-size: 15.5px; line-height: 1.75; color: var(--hero-dim); margin: 16px 0 0; max-width: 40ch; }
+  .hero-line b { color: var(--hero-ink); font-weight: 500; }
+
+  .hero-wave { display: block; width: 100%; height: 44px; margin-bottom: -1px; }
+
+  /* 팩트 스트립 */
+  .facts {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .fact { background: var(--ground); padding: 15px 8px; text-align: center; }
+  .fact dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 9.5px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 5px;
+  }
+  .fact dd { margin: 0; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  @media (max-width: 460px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ═══════════ 동선 지도 ═══════════ */
+
+  .mapwrap { padding: 38px 0 10px; }
+  .map-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+  .map-head h2 {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0;
+  }
+  .map-legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); }
+  .map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .map-legend i { width: 18px; height: 0; border-top-width: 2.5px; border-top-style: solid; display: inline-block; }
+  .lg1 i { border-color: var(--accent); }
+  .lg2 i { border-color: var(--accent2); border-top-style: dashed; }
+
+  .mapbox { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  svg.routemap { display: block; width: 100%; min-width: 460px; height: auto; }
+  .mapnote { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+
+  /* ═══════════ 섹션 ═══════════ */
+
+  section { padding-top: 52px; }
+
+  .day-head { margin-bottom: 4px; }
+  .day-kicker {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+  }
+  .day-num {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; color: var(--surface); background: var(--ink);
+    padding: 4px 11px;
+  }
+  .day2 .day-num { background: var(--accent2); }
+  .day-date {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: 0.08em;
+  }
+  .day-rule { flex: 1; height: 1px; background: var(--line); }
+  .day-head h2 {
+    font-family: "Noto Serif KR", Georgia, serif;
+    font-size: clamp(26px, 6vw, 34px); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.22; margin: 0;
+    text-wrap: balance;
+  }
+  .day-note { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 16px 0 0; }
+
+  /* ═══════════ 타임라인 ═══════════ */
+
+  .timeline { margin: 30px 0 0; }
+
+  .stop {
+    display: grid; grid-template-columns: 64px 1fr; gap: 20px;
+    position: relative; padding-bottom: 28px;
+  }
+  .stop::before {
+    content: ""; position: absolute; left: 5px; top: 11px; bottom: -5px;
+    width: 1px; background: var(--line);
+  }
+  .stop:last-child::before { display: none; }
+
+  .clock {
+    font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 500;
+    font-variant-numeric: tabular-nums; color: var(--ink);
+    padding-left: 19px; position: relative; padding-top: 1px;
+  }
+  .clock::before {
+    content: ""; position: absolute; left: 0; top: 7px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--ground); border: 2px solid var(--accent);
+  }
+  .day2 .clock::before { border-color: var(--accent2); }
+  .stop[data-kind="move"] .clock::before {
+    border-color: var(--line); width: 7px; height: 7px; left: 2px; top: 9px;
+  }
+  .stop[data-kind="anchor"] .clock::before { background: var(--accent); }
+  .day2 .stop[data-kind="anchor"] .clock::before { background: var(--accent2); }
+  .clock small { display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
+
+  .body-col { padding-top: 0; min-width: 0; }
+
+  .stop h3 { font-size: 19px; font-weight: 700; margin: 0 0 5px; letter-spacing: -0.02em; }
+  .stop h3 .kind {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 400;
+    letter-spacing: 0.1em; color: var(--accent); background: var(--accent-wash);
+    text-transform: uppercase; padding: 2px 7px; border-radius: 2px;
+    margin-right: 9px; vertical-align: 3px;
+  }
+  .day2 .stop h3 .kind { color: var(--accent2); background: var(--accent2-wash); }
+  .why { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 0 0 13px; }
+
+  .stop[data-kind="move"] .body-col { font-size: 13.5px; color: var(--muted); padding-top: 3px; }
+  .stop[data-kind="move"] { padding-bottom: 22px; }
+
+  /* 실무 정보 */
+  .ops {
+    background: var(--surface); border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--accent); padding: 14px 16px; display: grid; gap: 8px;
+    box-shadow: 0 1px 2px rgba(14,42,46,0.04);
+  }
+  .day2 .ops { border-left-color: var(--accent2); }
+
+  .op { display: grid; grid-template-columns: 58px 1fr; gap: 12px; font-size: 13.5px; align-items: start; }
+  .op dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); padding-top: 4px;
+  }
+  .op dd { margin: 0; color: var(--ink-soft); overflow-wrap: anywhere; }
+  .op dd b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  a { color: var(--accent); }
+  .day2 a { color: var(--accent2); }
+  a.tel, a.map {
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; text-decoration: none;
+    border-bottom: 1px solid currentColor; padding-bottom: 1px; white-space: nowrap;
+  }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* 뱃지 */
+  .badge {
+    display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; padding: 2px 6px; border-radius: 2px;
+    vertical-align: 1px; white-space: nowrap;
+  }
+  .badge.ok   { background: var(--accent-wash);    color: var(--accent); }
+  .badge.call { background: var(--warn-wash);   color: var(--warn); }
+  .badge.est  { background: var(--sunk);        color: var(--muted); }
+  .badge.new  { background: var(--accent2-wash); color: var(--accent2); }
+
+  /* 대안 / 경고 */
+  .alt {
+    font-size: 13px; color: var(--muted); margin: 10px 0 0;
+    padding-left: 13px; border-left: 2px solid var(--line);
+  }
+  .flag {
+    font-size: 13.5px; background: var(--warn-wash); color: var(--ink);
+    padding: 11px 14px; margin: 11px 0 0; border-left: 3px solid var(--warn);
+  }
+  .flag b { color: var(--warn); }
+
+  details.alts { margin-top: 12px; }
+  details.alts summary {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.04em;
+    color: var(--accent); cursor: pointer; list-style: none; padding: 4px 0;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .day2 details.alts summary { color: var(--accent2); }
+  details.alts summary::-webkit-details-marker { display: none; }
+  details.alts summary::before {
+    content: "+"; display: inline-block; width: 15px; height: 15px; line-height: 14px;
+    text-align: center; border: 1px solid currentColor; border-radius: 2px; font-size: 12px;
+  }
+  details.alts[open] summary::before { content: "−"; }
+  details.alts summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .alt-list { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); margin-top: 7px; }
+  .alt-item { background: var(--surface); padding: 13px 15px; }
+  .alt-item h4 { font-size: 14.5px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .alt-item h4 .where { font-weight: 400; color: var(--muted); font-size: 12.5px; margin-left: 5px; }
+  .alt-item p { font-size: 13px; line-height: 1.68; color: var(--ink-soft); margin: 0; }
+  .alt-item p.alt-meta { margin-top: 6px; color: var(--muted); font-size: 12.5px; }
+
+  /* ═══════════ 공통 헤딩 ═══════════ */
+
+  h2.plain {
+    font-family: "Noto Serif KR", Georgia, serif;
+    font-size: clamp(22px, 5vw, 27px); font-weight: 700;
+    letter-spacing: -0.028em; margin: 0 0 6px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--ink);
+  }
+  .sec-note { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 15px 0 0; }
+
+  /* 체크리스트 */
+  .checklist { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); margin-top: 22px; }
+  .check { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); padding: 15px 17px; cursor: pointer; }
+  .check input {
+    appearance: none; flex: none; width: 19px; height: 19px; margin: 2px 0 0;
+    border: 1.5px solid var(--muted); border-radius: 3px; background: var(--ground);
+    cursor: pointer; position: relative;
+  }
+  .check input:checked { background: var(--accent); border-color: var(--accent); }
+  .check input:checked::after {
+    content: ""; position: absolute; left: 6px; top: 2px; width: 4px; height: 9px;
+    border: solid var(--surface); border-width: 0 2px 2px 0; transform: rotate(42deg);
+  }
+  .check input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .check-body { min-width: 0; flex: 1; }
+  .check-title { font-size: 14.5px; font-weight: 600; margin: 0 0 3px; display: block; letter-spacing: -0.01em; }
+  .check-sub { font-size: 13px; color: var(--muted); margin: 0; display: block; line-height: 1.6; }
+  .check input:checked ~ .check-body .check-title {
+    text-decoration: line-through; color: var(--muted); font-weight: 400;
+  }
+
+  /* 비용 */
+  .cost-wrap { overflow-x: auto; margin-top: 20px; }
+  table.cost { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 340px; }
+  table.cost th, table.cost td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line-soft); }
+  table.cost th {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); font-weight: 400;
+  }
+  table.cost td:last-child, table.cost th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  table.cost tr.total td { border-top: 2px solid var(--ink); border-bottom: none; font-weight: 700; padding-top: 12px; }
+  table.cost tr.per td { border-bottom: none; color: var(--accent); font-weight: 700; font-size: 16px; padding-top: 3px; }
+
+  /* 판정 블록 */
+  .verdict { background: var(--sunk); padding: 19px 21px; margin-top: 22px; }
+  .verdict h3 { font-family: "Noto Serif KR", Georgia, serif; font-size: 19px; letter-spacing: -0.02em; margin: 0 0 5px; }
+  .verdict p { font-size: 14.5px; line-height: 1.76; color: var(--ink-soft); margin: 0; }
+  .verdict p + p { margin-top: 11px; }
+
+  .rule-out { display: grid; gap: 15px; margin-top: 22px; }
+  .ro {
+    display: grid; grid-template-columns: 132px 1fr; gap: 18px; font-size: 14.5px;
+    padding-bottom: 15px; border-bottom: 1px solid var(--line-soft); line-height: 1.72;
+  }
+  .ro:last-child { border-bottom: none; padding-bottom: 0; }
+  .ro dt { font-weight: 700; letter-spacing: -0.01em; }
+  .ro dd { margin: 0; color: var(--ink-soft); }
+
+  .packing { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .packing span { font-size: 13px; background: var(--surface); border: 1px solid var(--line); padding: 6px 12px; }
+
+  footer {
+    margin-top: 68px; padding: 26px 0 80px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; line-height: 1.7; color: var(--muted);
+  }
+  footer p { margin: 0 0 7px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+
+  @media (max-width: 560px) {
+    .stop { grid-template-columns: 54px 1fr; gap: 13px; }
+    .clock { font-size: 12.5px; padding-left: 17px; }
+    .op { grid-template-columns: 50px 1fr; gap: 9px; }
+    .ro { grid-template-columns: 1fr; gap: 4px; }
+    .wrap { padding: 0 17px; }
+    .hero-inner { padding: 48px 17px 38px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  /* ---- PDF/인쇄: 배포본용 ---- */
+  @media print {
+    :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    /* 대안 펼침은 CSS 로 불가(Chrome UA 동작) — PDF 빌드에서 open 속성 부여 */
+    details.alts summary { list-style: none; }
+    /* 블록 중간에서 페이지가 끊기지 않게 */
+    .stop, .day-head, details.alts, .routemap { break-inside: avoid; }
+    .day2 { break-before: page; }
+    @page { margin: 12mm 10mm; }
+  }
+</style>
+</head>
+<body>
+<div style="background:var(--ink);padding:9px 16px;font-size:13.5px;"><a href="./" style="color:var(--surface);text-decoration:none;font-weight:600;">← 세 가지 안 비교로</a></div>
+
+
+<!-- ═══════════════ 히어로 ═══════════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">투표 1안 · 친구 여덟 · 늦가을 서해</p>
+    <h1>영종도<span class="sub">1박 2일<span class="byline">by eskim</span></span></h1>
+    <p class="hero-date">2026. 11. 07 SAT — 11. 08 SUN</p>
+    <p class="hero-line">서울역에서 한 시간, <b>운전이 가장 적은 안</b>입니다. 첫날은 쌈밥 → 바다 위 데크길 → 공항뷰 카페 → 제철 대하, 둘째 날은 <b>올여름 새로 뚫린 다리를 건너 섬 해변</b>을 보고 낙지전골로 마무리합니다.</p>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1200 44" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,44 L0,20 C120,4 240,34 360,26 C480,18 600,2 720,10 C840,18 960,38 1080,32 C1140,29 1170,24 1200,20 L1200,44 Z" fill="var(--ground)"/>
+  </svg>
+</header>
+
+<dl class="facts">
+  <div class="fact"><dt>인원</dt><dd>8명 · 50대 후반</dd></div>
+  <div class="fact"><dt>차량</dt><dd>승용차 2대</dd></div>
+  <div class="fact"><dt>숙소</dt><dd>니어스테이 (운서역) · 예약 완료</dd></div>
+  <div class="fact"><dt>1인 예상</dt><dd>22–28만 (숙박 포함)</dd></div>
+</dl>
+
+<div class="wrap">
+
+  <div class="mapwrap">
+    <div class="map-head">
+      <h2>이틀 동안 도는 길</h2>
+      <div class="map-legend">
+        <span class="lg1"><i></i>첫날</span>
+        <span class="lg2"><i></i>둘째 날</span>
+      </div>
+    </div>
+    <div class="mapbox">
+      <svg class="routemap" viewBox="0 0 640 760" role="img" aria-label="영종도 1박 2일 동선 개략도">
+        <rect x="0" y="0" width="640" height="760" fill="var(--accent-wash)" opacity="0.6"/>
+        <path d="M554,107 L168,454 L100,700 L168,454 L362,260 L513,185 L362,260" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
+        <path d="M362,260 L389,111 L171,60 L362,260" fill="none" stroke="var(--accent2)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/>
+        <circle cx="362" cy="260" r="6" fill="var(--accent)"/>
+        <text x="372" y="278" font-size="13" fill="var(--ink-soft)" text-anchor="start">숙소 · 아침 · 2차 · 짱구네 (운서역)</text>
+        <circle cx="168" cy="454" r="6" fill="var(--accent)"/>
+        <text x="180" y="442" font-size="13" fill="var(--ink-soft)" text-anchor="start">해송쌈밥 · 스타파이브</text>
+        <circle cx="86" cy="445" r="4" fill="var(--muted)"/>
+        <text x="76" y="465" font-size="13" fill="var(--ink-soft)" text-anchor="end">동양염전</text>
+        <circle cx="100" cy="700" r="6" fill="var(--accent)"/>
+        <text x="112" y="705" font-size="13" fill="var(--ink-soft)" text-anchor="start">하나개 데크길</text>
+        <circle cx="513" cy="185" r="6" fill="var(--accent)"/>
+        <text x="523" y="203" font-size="13" fill="var(--ink-soft)" text-anchor="start">서해수산 · 대하</text>
+        <circle cx="389" cy="111" r="6" fill="var(--accent2)"/>
+        <text x="399" y="103" font-size="13" fill="var(--ink-soft)" text-anchor="start">예단포 둘레길</text>
+        <circle cx="171" cy="60" r="6" fill="var(--accent2)"/>
+        <text x="171" y="48" font-size="13" fill="var(--ink-soft)" text-anchor="middle">시도 수기해변</text>
+        <circle cx="554" cy="107" r="4" fill="var(--muted)"/>
+        <text x="600" y="60" font-size="12" fill="var(--muted)" text-anchor="end">서울역 ↗ 영종대교</text>
+        <line x1="406" y1="736" x2="580" y2="736" stroke="var(--muted)" stroke-width="2"/>
+        <text x="493" y="730" font-size="11" fill="var(--muted)" text-anchor="middle">5km</text>
+      </svg>
+    </div>
+    <p class="mapnote">실제 좌표로 그린 개략도입니다(직선 연결, 도로가 아닙니다). 운서역 일대에 숙소·아침·2차·마지막 점심이 모여 있어 <b>숙소 주변은 걸어서</b> 다닙니다. 둘째 날 신도·시도는 2026년 7월 개통한 평화도로로 차로 건너갑니다.</p>
+  </div>
+
+  <!-- ═══════════════ DAY 1 ═══════════════ -->
+  <section class="day1">
+    <div class="day-head">
+      <div class="day-kicker">
+        <span class="day-num">DAY 1</span>
+        <span class="day-date">11.07 SAT</span>
+        <span class="day-rule"></span>
+      </div>
+      <h2>쌈밥 한 상, 바다 위 데크길, 그리고 대하</h2>
+    </div>
+    <p class="day-note">은석님이 처음 그린 그림 그대로입니다 — <b>점심은 가볍게, 하나개를 걷고, 배가 꺼지면 카페</b>. 체크인해서 한숨 돌린 뒤 저녁은 제철 대하. 대하집에서는 반주만 하고 2차는 숙소 앞에서 걸어서 합니다. 이날 운전은 서울역→영종 한 시간과 섬 안 짧은 이동뿐입니다.</p>
+
+    <div class="timeline">
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">10:00<small>집결</small></div>
+        <div class="body-col">
+          <h3><span class="kind">집결</span>서울역 · 승용차 2대</h3>
+          <p class="why">이날의 시간 제약은 하나, <b>11:30 해송쌈밥 도착</b>입니다. 토요일 점심 줄이 서기 전이라 이 시각이면 대기가 거의 없습니다.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 70분</div>
+        <div class="body-col">서울역 → 공항고속도로 → 영종대교 → 공항서로 <span class="badge est">추정</span> 토요일 오전 정체 시 +20분</div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">11:30<small>~12:40</small></div>
+        <div class="body-col">
+          <h3><span class="kind">점심</span>해송쌈밥</h3>
+          <p class="why">우렁된장쌈밥 하나로 미는 집. 쌈과 고기가 무한리필이라 여덟이 메뉴 고민 없이 앉고, 창밖으로 비행기가 뜹니다. <b>채소 위주 한 상</b>이라 저녁 대하 전에 부담이 없습니다 — 처음 구상하신 「가볍게 먹고 걷기」에 맞는 집입니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>인천 영종구 공항서로 177 · <a class="map" href="https://map.naver.com/p/search/해송쌈밥" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=해송쌈밥" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>「영종도 단체 쌈밥」 네이버 블로그 검색에서 2017·2023·2025년 후기 반복 · 4층 건물 전체가 식당이고 <b>3층이 단체 예약석</b> <span class="badge ok">네이버 블로그 2026-10-06</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>10:30–21:00</b> · 월요일 휴무 <span class="badge ok">토요일 영업</span></dd></div>
+            <div class="op"><dt>전화</dt><dd><a class="tel" href="tel:0327470073">032-747-0073</a> <span class="badge call">단체 예약</span></dd></div>
+            <div class="op"><dt>가격</dt><dd>1인 <b>20,000원</b> <span class="badge ok">통화 확인 2026-09</span></dd></div>
+          </dl>
+          <p class="flag"><b>주말 점심은 웨이팅을 각오하라는 후기가 반복됩니다</b>(2026-09). 3층 단체석을 전화로 잡아두면 줄이 없습니다. 못 잡아도 11:30 도착이면 피크 전입니다.</p>
+          <details class="alts" open>
+            <summary>줄이 길면 — 2곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>청초수물회 을왕리점 · 공항서로 179 (바로 옆)</h4>
+                <p>속초 청초수물회의 지점, 해전물회·회덮밥. 줄을 보고 바로 옮길 수 있는 거리입니다. 11월 바닷바람 속 찬 물회라 <b>날이 따뜻한 날</b>의 선택지입니다. <span class="badge est">네이버 블로그 2026-10</span></p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/청초수물회 을왕리점" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=청초수물회 을왕리점" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+              <div class="alt-item">
+                <h4>고목정 쌈밥 · 을왕리 본점 / 왕산점</h4>
+                <p>「단체 모임에 적합」, 「자리 간격이 넓다」는 2025년 후기 반복. 1인 20,000원으로 같은 가격.</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/고목정 쌈밥 영종" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=고목정 쌈밥 영종" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 25분</div>
+        <div class="body-col">공항서로 → 잠진도 → 무의대교 → 하나개 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">13:05<small>~14:20</small></div>
+        <div class="body-col">
+          <h3><span class="kind">산책</span>하나개 해상관광탐방로</h3>
+          <p class="why">요청하신 데크길입니다. 해수욕장이 아니라 <b>절벽을 따라 바다 위에 놓인 약 800m 데크</b>가 목적입니다. 오르내림이 거의 없어 체력 차가 드러나지 않고, 힘들면 언제든 돌아올 수 있습니다. 점심 소화시키기에 딱 맞는 거리입니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>인천 영종구 대무의로 310-11 · <a class="map" href="https://map.naver.com/p/search/무의도 해상관광탐방로" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=무의도 해상관광탐방로" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>한국관광공사 「대한민국 구석구석」 기사 · 인천 섬포털 등재 <span class="badge ok">확인 2026-10-05</span></dd></div>
+            <div class="op"><dt>입장</dt><dd><b>무료 · 상시 개방</b> <span class="badge ok">확인</span></dd></div>
+            <div class="op"><dt>문의</dt><dd><a class="tel" href="tel:0327608855">032-760-8855</a></dd></div>
+            <div class="op"><dt>주차</dt><dd>하나개 주차장 전일 4,000원 <span class="badge est">2026-09 조회</span></dd></div>
+          </dl>
+          <p class="flag"><b>바람.</b> 11월 초 해안 데크는 체감온도가 크게 떨어집니다. 바람막이나 얇은 패딩을 챙기세요. 기상 악화 시 데크가 통제될 수 있으니 당일 문의 번호로 확인하세요.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 20분</div>
+        <div class="body-col">하나개 → 무의대교 → 공항서로 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">14:40<small>~15:55</small></div>
+        <div class="body-col">
+          <h3><span class="kind">카페</span>스타파이브 또는 동양염전 — 그날 날씨로 결정</h3>
+          <p class="why"><b>맑고 바람이 약하면 스타파이브</b> — 오성산을 등지고 인천공항 활주로를 정면으로 보는 베이커리 카페라, 루프탑·테라스에서 이착륙을 보는 맛은 날이 좋아야 제값입니다. <b>흐리거나 바람이 세면 동양염전</b> — 실내만 285평이고 빵은 여기가 최고입니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>뷰</dt><dd><b>스타파이브 카페</b> · 공항서로 133-1(덕교동) · 해송쌈밥에서 같은 길 약 400m · <a class="map" href="https://map.naver.com/p/search/스타파이브 카페" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=스타파이브 카페" target="_blank" rel="noopener">카카오</a><br>네이버 리뷰 <b>약 1만 1천 건</b> · 연중무휴(명절 포함) · <b>단체모임·대관 환영</b> · 루프탑·테라스 <span class="badge ok">네이버 플레이스·은석님 확인</span><br>영업시간 미확인 <span class="badge call">전화</span></dd></div>
+            <div class="op"><dt>빵</dt><dd><b>동양염전 베이커리카페</b> · 용유서로 32 · <a class="map" href="https://map.naver.com/p/search/동양염전 베이커리카페" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=동양염전 베이커리카페" target="_blank" rel="noopener">카카오</a><br>소금빵·소금커피 · 베이커리존 285평 · 중앙 단체석 · <b>10:00–22:00</b> <span class="badge ok">확인</span></dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 20분</div>
+        <div class="body-col">공항서로 → 운서역 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">16:15<small>체크인</small></div>
+        <div class="body-col">
+          <h3><span class="kind">숙소</span>니어스테이 · 운서역 근처 <span class="badge ok">예약 완료</span></h3>
+          <p class="why">짐을 풀고 <b>30분 쉬었다</b> 저녁에 나갑니다. 아침부터 움직였으니 이 반 시간이 저녁을 편하게 만듭니다. 체크인 15시·체크아웃 11시라 시간은 넉넉합니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>확인</dt><dd>체크인 15:00 · 체크아웃 11:00 <span class="badge ok">은석님 확인</span><br>주소·주차 2대·8명 침구 <span class="badge call">예약처에 확인</span></dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 15분</div>
+        <div class="body-col">운서동 → 영종순환로 <span class="badge est">추정</span> 차 두 대로 가고, 돌아올 때 대리 2대</div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">17:00<small>~19:00</small></div>
+        <div class="body-col">
+          <h3><span class="kind">저녁 · 본게임</span>서해수산 본점</h3>
+          <p class="why">요청에 있던 곳이고, 날짜가 메뉴를 정해준 집입니다. <b>대하철 넉 달만 여는 양식장 식당</b>이라 11월 7일은 시즌 막바지입니다. 직접 기른 새우를 수조에서 꺼내 바로 굽고, 야외 테이블은 호수뷰입니다. <b>17시 도착은 저녁 피크 전</b>이고, 앉아서 17:31 일몰을 봅니다. 여기서는 반주만 가볍게 — 줄 선 손님이 많은 식당이라 오래 앉기 어렵고, 제대로 한잔은 숙소 앞 2차에서 합니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>인천 영종구 영종순환로339번길 <b>77</b> · <a class="map" href="https://map.naver.com/p/search/서해수산 본점 영종도" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=서해수산 본점 영종도" target="_blank" rel="noopener">카카오</a> <span class="badge ok">네이버 지역검색</span><br>바로 옆 73번지는 2호점입니다 — 내비는 77로</dd></div>
+            <div class="op"><dt>평판</dt><dd>다이닝코드 ★4.7 · 「나 혼자 산다」 방영 · 10월 첫 주말 사흘에만 네이버 후기 10편 이상 <span class="badge ok">네이버 블로그 2026-10-06</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>10:00–21:00</b> · 휴무 없음 · 2026 시즌 8/14 개장 · 작년 시즌은 11/30까지 <span class="badge call">10월 말 영업 재확인</span></dd></div>
+            <div class="op"><dt>전화</dt><dd>010 휴대폰 번호라 공개 후기에는 가려져 있음 — 네이버 플레이스에서 <span class="badge call">전화</span></dd></div>
+            <div class="op"><dt>가격</dt><dd>왕새우구이 1kg 50,000원 · 1.5kg 75,000원 · 새우튀김 20,000원 · 해물라면 15,000원 <span class="badge ok">후기 2026-10-04</span></dd></div>
+          </dl>
+          <p class="flag"><b>대기가 가장 큰 변수입니다.</b> 10월 첫 주말 후기에 대기번호 318번이 있었습니다. 예약을 받지 않으니 도착하자마자 대기번호부터 받고, 번호가 크면 바로 옆 2호점 → 만정수산 순서로 걸어서 옮기세요.</p>
+          <details class="alts" open>
+            <summary>대기가 길면 같은 골목 2곳 · 시즌이 끝났으면 1곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>서해수산 2호점 · 339번길 73 (바로 옆)</h4>
+                <p>같은 양식장 대하, 메뉴·가격 구성이 같습니다. 「본점 대기가 길면 2호점부터」라는 후기가 10월에도 나옵니다.</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/서해수산2호점" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=서해수산2호점" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+              <div class="alt-item">
+                <h4>만정수산 · 339번길 85 (같은 골목)</h4>
+                <p>1kg 50,000원·머리구이 서비스로 가격이 같고 묵은지 해물라면이 이 집 방식. <b>09:00–21:00 (L.O. 20:00)</b> <a class="tel" href="tel:05013825864">050-1382-5864</a> <span class="badge ok">후기 2026-10-05</span></p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/만정수산 영종도" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=만정수산 영종도" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+              <div class="alt-item">
+                <h4>대하 시즌이 끝났으면 — 장어135 · 운서역 근처</h4>
+                <p>모랫말로16번길 13-52. 매장이 넓어 단체 후기가 있고 숙소 근처라 대리가 필요 없습니다. <span class="badge est">네이버 블로그 2026-10</span></p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/장어135 운서" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=장어135 운서" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 15분</div>
+        <div class="body-col">대리 2대로 숙소 → 걸어서 2차 <span class="badge est">대리 2대 3–4만원 추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">19:30<small>~</small></div>
+        <div class="body-col">
+          <h3><span class="kind">2차</span>왕초바베큐 운서점 · 운서역 앞</h3>
+          <p class="why">제대로 한잔은 여기서. 숙소가 운서역 근처라 <b>걸어서 오가고 대리가 필요 없습니다</b>. 4인 테이블이 넓게 놓여 단체·회식 후기가 있고, 살얼음 생맥주에 치킨·바비큐 안주입니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>인천 영종구 흰바위로59번길 8 102호 · 운서역 바로 앞 · <a class="map" href="https://map.naver.com/p/search/왕초바베큐 운서점" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=왕초바베큐 운서점" target="_blank" rel="noopener">카카오</a> <span class="badge ok">네이버 지역검색</span></dd></div>
+            <div class="op"><dt>평판</dt><dd>「단체 모임·회식하기 좋다」 · 살얼음 생맥 (2026-09-30 후기) <span class="badge est">네이버 블로그</span></dd></div>
+            <div class="op"><dt>영업</dt><dd>마감 시각·8명 자리 <span class="badge call">전화</span></dd></div>
+          </dl>
+          <details class="alts" open>
+            <summary>조용히 앉고 싶으면 — 1곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>작야 · 영종대로196번길 26 (요리주점)</h4>
+                <p>한식 안주 위주, 분위기 좋은 요리주점(2026-10 후기). 조용히 이야기 나누기에 맞고, 8명 자리는 먼저 물어보세요. <span class="badge call">전화</span></p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/작야 운서" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=작야 운서" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ DAY 2 ═══════════════ -->
+  <section class="day2">
+    <div class="day-head">
+      <div class="day-kicker">
+        <span class="day-num">DAY 2</span>
+        <span class="day-date">11.08 SUN</span>
+        <span class="day-rule"></span>
+      </div>
+      <h2>새로 뚫린 다리를 건너 섬 해변으로</h2>
+    </div>
+    <p class="day-note">아침은 숙소 앞에서 걸어서. 체크아웃 뒤 북쪽으로 올라가 <b>예단포 둘레길</b>을 짧게 걷고, <b>2026년 7월 개통한 평화도로</b>로 신도·시도를 건너 수기해변을 봅니다. 섬 식당은 비수기 휴무가 잦아 점심은 운서동으로 돌아와 먹고, 운서역에서 바로 해산합니다.</p>
+
+    <div class="timeline">
+
+      <div class="stop">
+        <div class="clock">09:00<small>~10:00</small></div>
+        <div class="body-col">
+          <h3><span class="kind">아침</span>백운닭칼국수 운서본점 · 숙소 앞</h3>
+          <p class="why">숙소 앞 세 곳 중 <b>네이버 지도 리뷰 3,696건</b>으로 평판이 압도적인 집입니다. 맑은 닭 육수라 술 마신 다음 날 속에도 맞고, 만두가 같이 나옵니다. 운서역에서 370m, <b>차를 두고 걸어갑니다</b>.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>인천 영종구 흰바위로92번길 6-16 1층 · <a class="map" href="https://map.naver.com/p/search/백운닭칼국수 운서본점" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=백운닭칼국수 운서본점" target="_blank" rel="noopener">카카오</a> <span class="badge ok">네이버 지역검색</span></dd></div>
+            <div class="op"><dt>평판</dt><dd>네이버 지도 리뷰 <b>3,696건</b> · 본점 <span class="badge ok">은석님 확인</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>05:30 오픈</b> <span class="badge ok">은석님 확인</span></dd></div>
+          </dl>
+          <p class="flag">리뷰가 이만큼 많으면 일요일 아침에도 줄이 설 수 있습니다. 자리가 없으면 기다리지 말고 대안으로 — 셋 다 걸어서 5~8분입니다.</p>
+          <details class="alts" open>
+            <summary>줄이 길거나 해장국이 당기면 — 숙소 앞 2곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>최가네원조양평해장국 · 화랑목로100번길 51</h4>
+                <p>해장국 파를 위한 집. 선지 무한리필, 「해내탕」. <b>06:00 오픈</b>, 운서역 600m. (은석님 확인)</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/최가네원조양평해장국 운서" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=최가네원조양평해장국 운서" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+              <div class="alt-item">
+                <h4>뽀글이국밥 · 신도시남로149번길 1</h4>
+                <p><b>24시간</b>, 운서역 360m로 가장 가깝습니다. (은석님 확인)</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/뽀글이국밥 운서" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=뽀글이국밥 운서" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">10:00<small>~10:20</small></div>
+        <div class="body-col">
+          <h3><span class="kind">출발</span>숙소로 돌아와 짐 싣고 체크아웃</h3>
+          <p class="why">아침을 숙소 앞에서 먹으니 9시 전에 짐을 쌀 필요가 없습니다. 퇴실은 11시라 여유가 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 15분</div>
+        <div class="body-col">운서동 → 운북동 예단포 <span class="badge est">추정</span> 운서역에서 북쪽 직선 4.3km</div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">10:35<small>~11:15</small></div>
+        <div class="body-col">
+          <h3><span class="kind">산책</span>예단포 둘레길</h3>
+          <p class="why">숙소에서 가장 가까운 해안 산책로입니다. 작은 포구 옆으로 난 짧은 길을 따라가면 <b>영종 앞바다가 훤히 보이는 전망 자리</b>가 나옵니다. 하나개가 「바다 위를 걷는 길」이라면 여기는 조용한 포구 산책이라 성격이 겹치지 않고, 섬으로 건너가는 길목이라 동선 손해도 없습니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>위치</dt><dd>인천 영종구 예단포1로 2-10 일대 (예단포구) · <a class="map" href="https://map.naver.com/p/search/예단포둘레길" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=예단포둘레길" target="_blank" rel="noopener">카카오</a> <span class="badge ok">네이버 지역검색</span></dd></div>
+            <div class="op"><dt>평판</dt><dd>「산책로 따라 걷다 보면 영종도 앞바다를 훤히 볼 수 있는 전망 좋은 곳」(2025-02 후기) · 노을 산책 후기 다수 <span class="badge est">네이버 블로그</span></dd></div>
+            <div class="op"><dt>주의</dt><dd>비 온 뒤에는 길이 질다는 후기(2025-02) · 주차는 포구 일대 <span class="badge est">추정</span></dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 20분</div>
+        <div class="body-col">예단포 → <b>영종~신도 평화도로</b>(2026.07.14 개통 · 통행 무료 · 24시간) → 신도 → 시도 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">11:35<small>~12:15</small></div>
+        <div class="body-col">
+          <h3><span class="kind">시도</span>수기해변</h3>
+          <p class="why">소나무 숲이 바다를 감싸는 작은 해변, 드라마 「풀하우스」 촬영지입니다. 다리를 건너는 길 자체가 볼거리이고, 해변에서는 바다 보고 사진 찍고 잠깐 걷는 정도로 40분이면 충분합니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>위치</dt><dd>인천 옹진군 북도면 시도리 · <a class="map" href="https://map.naver.com/p/search/수기해수욕장" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=수기해수욕장" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>입장</dt><dd>무료 <span class="badge ok">확인</span></dd></div>
+          </dl>
+          <details class="alts" open>
+            <summary>시간이 남으면 — 모도 카페 1곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>타이거비치 · 모도 (빵 한 조각 하려면)</h4>
+                <p>모도 길 끝의 대형 베이커리 카페, 통유리 바다뷰·무료주차. 2026-09 후기 기준 10:00–20:00이고 <b>11월 영업·8명 자리는 미확인</b>입니다. 들르면 점심이 30분 밀립니다. <span class="badge call">전화</span></p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/타이거비치 모도" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=타이거비치 모도" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 35분</div>
+        <div class="body-col">시도 → 신도 → 평화도로 → 운서동 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">12:50<small>~14:00</small></div>
+        <div class="body-col">
+          <h3><span class="kind">점심</span>빨간거 짱구네 본점</h3>
+          <p class="why">이틀의 마지막 식사를 섬이 아니라 운서동으로 나와서 먹습니다. 섬 식당은 비수기 휴무가 잦아 여덟이 헛걸음할 위험이 있는데, 이 구조면 그 불확실성이 없습니다. 「빨간거」가 낙지전골 — 전날 구운 대하, 아침 닭칼국수 다음이라 <b>매콤한 국물로 마무리</b>하는 흐름입니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>인천 영종구 햇내로안길 18-7 1층 (운서동) · <a class="map" href="https://map.naver.com/p/search/빨간거 짱구네 본점" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=빨간거 짱구네 본점" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>네이버 블로그 후기 2,100편 이상 · 2026년 9월 한 주에만 7편 · 방송 다수 <span class="badge ok">네이버 블로그 2026-09-23</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>10:00–22:00</b> · 브레이크 없음 <span class="badge ok">확인</span></dd></div>
+            <div class="op"><dt>전화</dt><dd><a class="tel" href="tel:0327529373">032-752-9373</a> <span class="badge call">8명 한 상 / 안 되면 4+4</span></dd></div>
+            <div class="op"><dt>메뉴</dt><dd>빨간거(낙지전골) 30,000원 · 하얀거(연포탕) · 8명이면 빨간거 3–4개 + 돼지고기 추가 + 칼국수사리·볶음밥</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">14:15<small>해산</small></div>
+        <div class="body-col">
+          <h3><span class="kind">해산</span>운서역 (짱구네에서 걸어서 5분)</h3>
+          <p class="why">공항철도로 가는 사람은 여기서 바로 타고(서울역까지 약 1시간), 차 두 대는 영종대교로 올라갑니다. <b>일요일 오후 정체가 본격화되기 전</b>이라 차로 가는 쪽도 이 시각이 낫습니다. 더 머물고 싶으면 스타파이브나 동양염전에 한 번 더 들러 16시대에 해산해도 됩니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">지금부터 할 일</h2>
+    <p class="sec-note">숙소는 예약돼 있습니다. 남은 것은 전화로만 확정되는 것들이고, <b>서해수산이 가장 급합니다</b> — 계절 영업이고 대기가 깁니다.</p>
+    <div class="checklist" id="checklist">
+      <label class="check">
+        <input type="checkbox" data-key="c1">
+        <span class="check-body">
+          <span class="check-title">1. 서해수산 — 11/7(토) 영업 + 대기 상황</span>
+          <span class="check-sub">번호는 네이버 플레이스(010) · 10월 말에 시즌 마감일 확인 · 17시 도착이면 대기가 어느 정도인지 · 막히면 2호점 → 만정수산 050-1382-5864</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c2">
+        <span class="check-body">
+          <span class="check-title">2. 해송쌈밥 — 3층 단체석 예약</span>
+          <span class="check-sub">032-747-0073 · 토요일 11:30 · 8명</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c3">
+        <span class="check-body">
+          <span class="check-title">3. 니어스테이 — 주소 · 주차 2대 · 8명 침구</span>
+          <span class="check-sub">체크인 15시·체크아웃 11시는 확인됨</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c4">
+        <span class="check-body">
+          <span class="check-title">4. 짱구네 — 일요일 12:50 · 8명</span>
+          <span class="check-sub">032-752-9373 · 한 상이 어려우면 4+4</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c5">
+        <span class="check-body">
+          <span class="check-title">5. 2차 왕초바베큐 — 마감 시각 · 8명</span>
+          <span class="check-sub">네이버 플레이스 · 막히면 작야</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c6">
+        <span class="check-body">
+          <span class="check-title">6. 대리운전 2대 번호</span>
+          <span class="check-sub">토요일 19시 서해수산 → 운서동 · 식당에 동네 업체를 물어보는 게 가장 빠름</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c7">
+        <span class="check-body">
+          <span class="check-title">7. 출발 전날 — 날씨</span>
+          <span class="check-sub">바람이 세면 하나개 짧게 · 비면 아래 Plan B</span>
+        </span>
+      </label>
+    </div>
+    <div class="packing">
+      <span>바람막이 · 얇은 패딩</span>
+      <span>편한 신발</span>
+      <span>대리운전 번호</span>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">예상 비용</h2>
+    <p class="sec-note">이번 여행의 기준은 <b>비용이 아니라 잘 먹고 편하게 자는 것</b>입니다. 예산에 맞추려고 뺀 곳은 없습니다.</p>
+    <div class="cost-wrap">
+      <table class="cost">
+        <thead><tr><th>항목</th><th>8명 기준</th></tr></thead>
+        <tbody>
+          <tr><td>숙소 · 니어스테이</td><td>70만원</td></tr>
+          <tr><td>저녁 · 서해수산 (반주)</td><td>30–40만원</td></tr>
+          <tr><td>2차 · 숙소 앞</td><td>15–25만원</td></tr>
+          <tr><td>점심 · 해송쌈밥 (1인 20,000원)</td><td>16–18만원</td></tr>
+          <tr><td>점심 · 짱구네</td><td>15–20만원</td></tr>
+          <tr><td>카페</td><td>8–12만원</td></tr>
+          <tr><td>아침 · 백운닭칼국수</td><td>6–8만원</td></tr>
+          <tr><td>유류 · 통행료 · 주차 (2대)</td><td>8–12만원</td></tr>
+          <tr><td>대리운전 2대 (영종도 내)</td><td>3–4만원</td></tr>
+          <tr><td>예비</td><td>5–10만원</td></tr>
+          <tr class="total"><td>합계</td><td>176–219만원</td></tr>
+          <tr class="per"><td>1인</td><td>약 22–28만원</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">날씨가 나쁘면</h2>
+    <p class="sec-note">흔들리는 칸은 하나개(첫날)와 섬 해변(둘째 날)입니다.</p>
+    <div class="verdict">
+      <h3>바람만 강한 날 — 거의 그대로</h3>
+      <p>하나개 데크는 걷는 시간만 줄이고 카페에 일찍 앉습니다. 둘째 날 섬은 드라이브가 절반이라 다리 위·차 안에서 보는 비중을 늘리면 됩니다.</p>
+    </div>
+    <div class="verdict">
+      <h3>비가 오는 날 — 인스파이어 리조트</h3>
+      <p>첫날 하나개 대신 <b>인스파이어 리조트</b>(오로라 미디어 스트리트 · 전 구간 실내, 4만원 이상 구매 시 주차 무료)로. 둘째 날 비가 오면 예단포·수기해변을 빼고 카페를 한 번 더 들른 뒤 짱구네로 갑니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">뺀 것과 그 이유</h2>
+    <p class="sec-note">「확실히 갈 곳은 본선, 갈지 말지 애매한 곳은 대안」으로 짰습니다.</p>
+    <dl class="rule-out">
+      <div class="ro">
+        <dt>보문항 (아침)</dt>
+        <dd>화덕 생선구이 정식은 좋지만 운서역에서 직선 3.8km라 짐을 다 싣고 차로 가야 합니다. 숙소 앞에서 걸어가는 쪽이 이틀째 아침에 편합니다.</dd>
+      </div>
+      <div class="ro">
+        <dt>을왕리 · 선녀바위</dt>
+        <dd>첫날 하나개에서 카페로 가는 해안도로가 이 앞을 지나 차창으로 봅니다. 선녀바위는 일몰 명소라 한낮엔 제값이 덜하고, 하나개와 「바다와 바위」 성격이 겹칩니다.</dd>
+      </div>
+      <div class="ro">
+        <dt>모도 배미꾸미 조각공원</dt>
+        <dd>조각 상당수가 성적 표현이라는 후기(2026-09), 관리 소홀·입장료 징수 불친절 불만이 다년간 반복됩니다.</dd>
+      </div>
+      <div class="ro">
+        <dt>섬에서 점심</dt>
+        <dd>섬 식당은 비수기 휴무와 재료 소진이 잦습니다. 운서동으로 나와 먹으면 그 위험이 없고 해산 장소와도 붙습니다.</dd>
+      </div>
+      <div class="ro">
+        <dt>씨사이드 레일바이크</dt>
+        <dd>4인승 두 대에 여덟이 정확히 떨어지지만, 영종 동쪽 끝이라 이 동선과 맞지 않습니다.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>
+    <div class="legend">
+      <span><span class="badge ok">확인</span> 공식·복수 출처 또는 통화로 확인</span>
+      <span><span class="badge call">전화</span> 전화로 확정 필요</span>
+      <span><span class="badge est">추정</span> 미검증 · 실제와 다를 수 있음</span>
+    </div>
+    <p>이동 시간은 모두 <b>추정치</b>입니다. 출발 전 지도 앱으로 다시 보세요.</p>
+    <p>근거는 네이버 검색 API(블로그·지역, 2026-10-06), 한국관광공사 「대한민국 구석구석」, 인천 섬포털, 다이닝코드 집계, 은석님 확인(통화·현장 정보)입니다. 일몰 17:31은 계산값입니다. <b>서해수산은 계절 영업이라 10월 말에 반드시 영업 여부를 다시 확인하세요.</b> 식당 폐업·휴업은 온라인 반영이 가장 늦는 정보입니다.</p>
+  </footer>
+
+</div>
+<script>
+  (function () {
+    var KEY = "2026-11-07-yeongjong-v2-checklist";
+    var boxes = document.querySelectorAll("#checklist input[type=checkbox]");
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+
+    boxes.forEach(function (box) {
+      if (saved[box.dataset.key]) box.checked = true;
+      box.addEventListener("change", function () {
+        var state = {};
+        boxes.forEach(function (b) { if (b.checked) state[b.dataset.key] = 1; });
+        try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>

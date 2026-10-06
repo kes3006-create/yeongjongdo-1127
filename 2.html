@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="2안 · 강화도 1박 2일 일정표">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>강화도 1박 2일</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Gothic+A1:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:      #FAF8F4;
+    --surface:     #FFFFFF;
+    --sunk:        #F1EEE7;
+    --ink:         #0E2A2E;
+    --ink-soft:    #3C565B;
+    --muted:       #6E8489;
+    --line:        #DEDAD1;
+    --line-soft:   #EBE7DE;
+    --accent:         #3E6B3A;
+    --accent-deep:    #23421F;
+    --accent-wash:    #E6EFE3;
+    --accent2:      #A5541E;
+    --accent2-wash: #F8EBDE;
+    --warn:        #87680F;
+    --warn-wash:   #F6F0DA;
+    --hero-from:   #23421F;
+    --hero-to:     #3E6B3A;
+    --hero-ink:    #F3F7F6;
+    --hero-dim:    #B9D1B2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0B1618;
+      --surface:     #142124;
+      --sunk:        #0F1C1F;
+      --ink:         #E9EEED;
+      --ink-soft:    #B5C4C5;
+      --muted:       #83989B;
+      --line:        #29393D;
+      --line-soft:   #1D2C30;
+      --accent:         #93C08B;
+      --accent-deep:    #16301A;
+      --accent-wash:    #18261A;
+      --accent2:      #E09257;
+      --accent2-wash: #2F2011;
+      --warn:        #D6B65C;
+      --warn-wash:   #2B2514;
+      --hero-from:   #132A16;
+      --hero-to:     #2C5128;
+      --hero-ink:    #EAF2F1;
+      --hero-dim:    #A9C6A2;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:      #0B1618;
+    --surface:     #142124;
+    --sunk:        #0F1C1F;
+    --ink:         #E9EEED;
+    --ink-soft:    #B5C4C5;
+    --muted:       #83989B;
+    --line:        #29393D;
+    --line-soft:   #1D2C30;
+    --accent:         #93C08B;
+    --accent-deep:    #16301A;
+    --accent-wash:    #18261A;
+    --accent2:      #E09257;
+    --accent2-wash: #2F2011;
+    --warn:        #D6B65C;
+    --warn-wash:   #2B2514;
+    --hero-from:   #132A16;
+    --hero-to:     #2C5128;
+    --hero-ink:    #EAF2F1;
+    --hero-dim:    #A9C6A2;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Gothic A1", system-ui, -apple-system, "Malgun Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.72;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+  /* ═══════════ 히어로 ═══════════ */
+
+  .hero {
+    background: linear-gradient(160deg, var(--hero-from) 0%, var(--hero-to) 100%);
+    color: var(--hero-ink);
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 0;
+  }
+  .hero-inner { max-width: 800px; margin: 0 auto; padding: 60px 20px 44px; position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--hero-dim); margin: 0 0 20px;
+  }
+  .hero h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(46px, 13vw, 88px);
+    line-height: 0.98; letter-spacing: -0.04em;
+    margin: 0; color: var(--hero-ink);
+  }
+  .hero h1 .sub {
+    display: flex; align-items: baseline; justify-content: flex-start;
+    gap: 18px; flex-wrap: wrap;
+    font-size: clamp(24px, 6.5vw, 42px);
+    font-weight: 400; letter-spacing: -0.02em;
+    color: var(--hero-dim); margin-top: 6px;
+  }
+  .hero h1 .byline {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: lowercase;
+    color: var(--hero-dim); opacity: 0.8;
+    white-space: nowrap; align-self: flex-end;
+    padding-bottom: 6px;
+  }
+  .hero-date {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(13px, 3.4vw, 16px); letter-spacing: 0.1em;
+    color: var(--hero-ink); margin: 26px 0 0;
+    font-variant-numeric: tabular-nums;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.22);
+    display: inline-block;
+  }
+  .hero-line { font-size: 15.5px; line-height: 1.75; color: var(--hero-dim); margin: 16px 0 0; max-width: 40ch; }
+  .hero-line b { color: var(--hero-ink); font-weight: 500; }
+
+  .hero-wave { display: block; width: 100%; height: 44px; margin-bottom: -1px; }
+
+  /* 팩트 스트립 */
+  .facts {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .fact { background: var(--ground); padding: 15px 8px; text-align: center; }
+  .fact dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 9.5px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 5px;
+  }
+  .fact dd { margin: 0; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  @media (max-width: 460px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ═══════════ 동선 지도 ═══════════ */
+
+  .mapwrap { padding: 38px 0 10px; }
+  .map-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+  .map-head h2 {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0;
+  }
+  .map-legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); }
+  .map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .map-legend i { width: 18px; height: 0; border-top-width: 2.5px; border-top-style: solid; display: inline-block; }
+  .lg1 i { border-color: var(--accent); }
+  .lg2 i { border-color: var(--accent2); border-top-style: dashed; }
+
+  .mapbox { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  svg.routemap { display: block; width: 100%; min-width: 460px; height: auto; }
+  .mapnote { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+
+  /* ═══════════ 섹션 ═══════════ */
+
+  section { padding-top: 52px; }
+
+  .day-head { margin-bottom: 4px; }
+  .day-kicker {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+  }
+  .day-num {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; color: var(--surface); background: var(--ink);
+    padding: 4px 11px;
+  }
+  .day2 .day-num { background: var(--accent2); }
+  .day-date {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: 0.08em;
+  }
+  .day-rule { flex: 1; height: 1px; background: var(--line); }
+  .day-head h2 {
+    font-family: "Noto Serif KR", Georgia, serif;
+    font-size: clamp(26px, 6vw, 34px); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.22; margin: 0;
+    text-wrap: balance;
+  }
+  .day-note { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 16px 0 0; }
+
+  /* ═══════════ 타임라인 ═══════════ */
+
+  .timeline { margin: 30px 0 0; }
+
+  .stop {
+    display: grid; grid-template-columns: 64px 1fr; gap: 20px;
+    position: relative; padding-bottom: 28px;
+  }
+  .stop::before {
+    content: ""; position: absolute; left: 5px; top: 11px; bottom: -5px;
+    width: 1px; background: var(--line);
+  }
+  .stop:last-child::before { display: none; }
+
+  .clock {
+    font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 500;
+    font-variant-numeric: tabular-nums; color: var(--ink);
+    padding-left: 19px; position: relative; padding-top: 1px;
+  }
+  .clock::before {
+    content: ""; position: absolute; left: 0; top: 7px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--ground); border: 2px solid var(--accent);
+  }
+  .day2 .clock::before { border-color: var(--accent2); }
+  .stop[data-kind="move"] .clock::before {
+    border-color: var(--line); width: 7px; height: 7px; left: 2px; top: 9px;
+  }
+  .stop[data-kind="anchor"] .clock::before { background: var(--accent); }
+  .day2 .stop[data-kind="anchor"] .clock::before { background: var(--accent2); }
+  .clock small { display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
+
+  .body-col { padding-top: 0; min-width: 0; }
+
+  .stop h3 { font-size: 19px; font-weight: 700; margin: 0 0 5px; letter-spacing: -0.02em; }
+  .stop h3 .kind {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 400;
+    letter-spacing: 0.1em; color: var(--accent); background: var(--accent-wash);
+    text-transform: uppercase; padding: 2px 7px; border-radius: 2px;
+    margin-right: 9px; vertical-align: 3px;
+  }
+  .day2 .stop h3 .kind { color: var(--accent2); background: var(--accent2-wash); }
+  .why { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 0 0 13px; }
+
+  .stop[data-kind="move"] .body-col { font-size: 13.5px; color: var(--muted); padding-top: 3px; }
+  .stop[data-kind="move"] { padding-bottom: 22px; }
+
+  /* 실무 정보 */
+  .ops {
+    background: var(--surface); border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--accent); padding: 14px 16px; display: grid; gap: 8px;
+    box-shadow: 0 1px 2px rgba(14,42,46,0.04);
+  }
+  .day2 .ops { border-left-color: var(--accent2); }
+
+  .op { display: grid; grid-template-columns: 58px 1fr; gap: 12px; font-size: 13.5px; align-items: start; }
+  .op dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); padding-top: 4px;
+  }
+  .op dd { margin: 0; color: var(--ink-soft); overflow-wrap: anywhere; }
+  .op dd b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  a { color: var(--accent); }
+  .day2 a { color: var(--accent2); }
+  a.tel, a.map {
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; text-decoration: none;
+    border-bottom: 1px solid currentColor; padding-bottom: 1px; white-space: nowrap;
+  }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* 뱃지 */
+  .badge {
+    display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; padding: 2px 6px; border-radius: 2px;
+    vertical-align: 1px; white-space: nowrap;
+  }
+  .badge.ok   { background: var(--accent-wash);    color: var(--accent); }
+  .badge.call { background: var(--warn-wash);   color: var(--warn); }
+  .badge.est  { background: var(--sunk);        color: var(--muted); }
+  .badge.new  { background: var(--accent2-wash); color: var(--accent2); }
+
+  /* 대안 / 경고 */
+  .alt {
+    font-size: 13px; color: var(--muted); margin: 10px 0 0;
+    padding-left: 13px; border-left: 2px solid var(--line);
+  }
+  .flag {
+    font-size: 13.5px; background: var(--warn-wash); color: var(--ink);
+    padding: 11px 14px; margin: 11px 0 0; border-left: 3px solid var(--warn);
+  }
+  .flag b { color: var(--warn); }
+
+  details.alts { margin-top: 12px; }
+  details.alts summary {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.04em;
+    color: var(--accent); cursor: pointer; list-style: none; padding: 4px 0;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .day2 details.alts summary { color: var(--accent2); }
+  details.alts summary::-webkit-details-marker { display: none; }
+  details.alts summary::before {
+    content: "+"; display: inline-block; width: 15px; height: 15px; line-height: 14px;
+    text-align: center; border: 1px solid currentColor; border-radius: 2px; font-size: 12px;
+  }
+  details.alts[open] summary::before { content: "−"; }
+  details.alts summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .alt-list { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); margin-top: 7px; }
+  .alt-item { background: var(--surface); padding: 13px 15px; }
+  .alt-item h4 { font-size: 14.5px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .alt-item h4 .where { font-weight: 400; color: var(--muted); font-size: 12.5px; margin-left: 5px; }
+  .alt-item p { font-size: 13px; line-height: 1.68; color: var(--ink-soft); margin: 0; }
+  .alt-item p.alt-meta { margin-top: 6px; color: var(--muted); font-size: 12.5px; }
+
+  /* ═══════════ 공통 헤딩 ═══════════ */
+
+  h2.plain {
+    font-family: "Noto Serif KR", Georgia, serif;
+    font-size: clamp(22px, 5vw, 27px); font-weight: 700;
+    letter-spacing: -0.028em; margin: 0 0 6px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--ink);
+  }
+  .sec-note { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 15px 0 0; }
+
+  /* 체크리스트 */
+  .checklist { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); margin-top: 22px; }
+  .check { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); padding: 15px 17px; cursor: pointer; }
+  .check input {
+    appearance: none; flex: none; width: 19px; height: 19px; margin: 2px 0 0;
+    border: 1.5px solid var(--muted); border-radius: 3px; background: var(--ground);
+    cursor: pointer; position: relative;
+  }
+  .check input:checked { background: var(--accent); border-color: var(--accent); }
+  .check input:checked::after {
+    content: ""; position: absolute; left: 6px; top: 2px; width: 4px; height: 9px;
+    border: solid var(--surface); border-width: 0 2px 2px 0; transform: rotate(42deg);
+  }
+  .check input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .check-body { min-width: 0; flex: 1; }
+  .check-title { font-size: 14.5px; font-weight: 600; margin: 0 0 3px; display: block; letter-spacing: -0.01em; }
+  .check-sub { font-size: 13px; color: var(--muted); margin: 0; display: block; line-height: 1.6; }
+  .check input:checked ~ .check-body .check-title {
+    text-decoration: line-through; color: var(--muted); font-weight: 400;
+  }
+
+  /* 비용 */
+  .cost-wrap { overflow-x: auto; margin-top: 20px; }
+  table.cost { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 340px; }
+  table.cost th, table.cost td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line-soft); }
+  table.cost th {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); font-weight: 400;
+  }
+  table.cost td:last-child, table.cost th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  table.cost tr.total td { border-top: 2px solid var(--ink); border-bottom: none; font-weight: 700; padding-top: 12px; }
+  table.cost tr.per td { border-bottom: none; color: var(--accent); font-weight: 700; font-size: 16px; padding-top: 3px; }
+
+  /* 판정 블록 */
+  .verdict { background: var(--sunk); padding: 19px 21px; margin-top: 22px; }
+  .verdict h3 { font-family: "Noto Serif KR", Georgia, serif; font-size: 19px; letter-spacing: -0.02em; margin: 0 0 5px; }
+  .verdict p { font-size: 14.5px; line-height: 1.76; color: var(--ink-soft); margin: 0; }
+  .verdict p + p { margin-top: 11px; }
+
+  .rule-out { display: grid; gap: 15px; margin-top: 22px; }
+  .ro {
+    display: grid; grid-template-columns: 132px 1fr; gap: 18px; font-size: 14.5px;
+    padding-bottom: 15px; border-bottom: 1px solid var(--line-soft); line-height: 1.72;
+  }
+  .ro:last-child { border-bottom: none; padding-bottom: 0; }
+  .ro dt { font-weight: 700; letter-spacing: -0.01em; }
+  .ro dd { margin: 0; color: var(--ink-soft); }
+
+  .packing { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .packing span { font-size: 13px; background: var(--surface); border: 1px solid var(--line); padding: 6px 12px; }
+
+  footer {
+    margin-top: 68px; padding: 26px 0 80px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; line-height: 1.7; color: var(--muted);
+  }
+  footer p { margin: 0 0 7px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+
+  @media (max-width: 560px) {
+    .stop { grid-template-columns: 54px 1fr; gap: 13px; }
+    .clock { font-size: 12.5px; padding-left: 17px; }
+    .op { grid-template-columns: 50px 1fr; gap: 9px; }
+    .ro { grid-template-columns: 1fr; gap: 4px; }
+    .wrap { padding: 0 17px; }
+    .hero-inner { padding: 48px 17px 38px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  /* ---- PDF/인쇄: 배포본용 ---- */
+  @media print {
+    :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    /* 대안 펼침은 CSS 로 불가(Chrome UA 동작) — PDF 빌드에서 open 속성 부여 */
+    details.alts summary { list-style: none; }
+    /* 블록 중간에서 페이지가 끊기지 않게 */
+    .stop, .day-head, details.alts, .routemap { break-inside: avoid; }
+    .day2 { break-before: page; }
+    @page { margin: 12mm 10mm; }
+  }
+</style>
+</head>
+<body>
+<div style="background:var(--ink);padding:9px 16px;font-size:13.5px;"><a href="./" style="color:var(--surface);text-decoration:none;font-weight:600;">← 세 가지 안 비교로</a></div>
+
+
+<!-- ═══════════════ 히어로 ═══════════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">투표 2안 · 친구 여덟 · 늦가을 서해</p>
+    <h1>강화도<span class="sub">1박 2일<span class="byline">by eskim</span></span></h1>
+    <p class="hero-date">2026. 11. 07 SAT — 11. 08 SUN</p>
+    <p class="hero-line">첫날은 민통선 너머 교동도에서 북녘을 보고, <b>바다로 해 지는 양식장에서 대하</b>. 둘째 날은 남쪽 갯벌과 천년 고찰을 지나 <b>강화 갯벌장어</b>로 마무리하고 김포공항역에서 헤어집니다.</p>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1200 44" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,44 L0,20 C120,4 240,34 360,26 C480,18 600,2 720,10 C840,18 960,38 1080,32 C1140,29 1170,24 1200,20 L1200,44 Z" fill="var(--ground)"/>
+  </svg>
+</header>
+
+<dl class="facts">
+  <div class="fact"><dt>인원</dt><dd>8명 · 50대 후반</dd></div>
+  <div class="fact"><dt>차량</dt><dd>승용차 2대</dd></div>
+  <div class="fact"><dt>숙소</dt><dd>엘리야 리조트 (화도면)</dd></div>
+  <div class="fact"><dt>1인 예상</dt><dd>18–24만 + 숙박비</dd></div>
+</dl>
+
+<div class="wrap">
+
+  <div class="mapwrap">
+    <div class="map-head">
+      <h2>이틀 동안 도는 길</h2>
+      <div class="map-legend">
+        <span class="lg1"><i></i>첫날</span>
+        <span class="lg2"><i></i>둘째 날</span>
+      </div>
+    </div>
+    <div class="mapbox">
+      <svg class="routemap" viewBox="0 0 720 700" role="img" aria-label="강화도 1박 2일 동선 개략도">
+        <rect x="0" y="0" width="720" height="700" fill="var(--accent-wash)" opacity="0.6"/>
+        <path d="M647,243 L201,64 L60,97 L86,81 L201,64 L522,187 L359,471 L303,511" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity="0.85"/>
+        <path d="M303,511 L469,636 L532,522 L645,558 L660,521" fill="none" stroke="var(--accent2)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/>
+        <circle cx="201" cy="64" r="6" fill="var(--accent)"/>
+        <text x="211" y="54" font-size="13" fill="var(--ink-soft)" text-anchor="start">교동대교 검문</text>
+        <circle cx="60" cy="97" r="6" fill="var(--accent)"/>
+        <text x="52" y="121" font-size="13" fill="var(--ink-soft)" text-anchor="start">대풍식당 · 대룡시장</text>
+        <circle cx="86" cy="81" r="6" fill="var(--accent)"/>
+        <text x="76" y="71" font-size="13" fill="var(--ink-soft)" text-anchor="end">화개정원</text>
+        <circle cx="522" cy="187" r="6" fill="var(--accent)"/>
+        <text x="532" y="179" font-size="13" fill="var(--ink-soft)" text-anchor="start">조양방직 (강화읍)</text>
+        <circle cx="359" cy="471" r="6" fill="var(--accent)"/>
+        <text x="369" y="461" font-size="13" fill="var(--ink-soft)" text-anchor="start">박문양식장 · 대하 · 일몰</text>
+        <circle cx="303" cy="511" r="6" fill="var(--accent)"/>
+        <text x="293" y="529" font-size="13" fill="var(--ink-soft)" text-anchor="end">엘리야 리조트</text>
+        <circle cx="469" cy="636" r="6" fill="var(--accent2)"/>
+        <text x="469" y="658" font-size="13" fill="var(--ink-soft)" text-anchor="middle">동막해변 · 분오리돈대</text>
+        <circle cx="532" cy="522" r="6" fill="var(--accent2)"/>
+        <text x="522" y="512" font-size="13" fill="var(--ink-soft)" text-anchor="end">전등사</text>
+        <circle cx="645" cy="558" r="6" fill="var(--accent2)"/>
+        <text x="645" y="580" font-size="13" fill="var(--ink-soft)" text-anchor="middle">강나루 장어 · 아이나</text>
+        <circle cx="660" cy="521" r="4" fill="var(--muted)"/>
+        <circle cx="647" cy="243" r="4" fill="var(--muted)"/>
+        <text x="700" y="40" font-size="12" fill="var(--muted)" text-anchor="end">서울역 ↗ 강화대교로 진입</text>
+        <text x="700" y="645" font-size="12" fill="var(--muted)" text-anchor="end">초지대교로 나가 김포공항역 ↘</text>
+        <line x1="529" y1="676" x2="660" y2="676" stroke="var(--muted)" stroke-width="2"/>
+        <text x="594" y="670" font-size="11" fill="var(--muted)" text-anchor="middle">5km</text>
+      </svg>
+    </div>
+    <p class="mapnote">실제 좌표로 그린 개략도입니다(직선 연결, 도로가 아닙니다). 들어올 때는 북쪽 강화대교, 나갈 때는 남쪽 초지대교로 섬을 한 바퀴 돕니다. 대룡시장 위치는 대략입니다.</p>
+  </div>
+
+  <!-- ═══════════════ DAY 1 ═══════════════ -->
+  <section class="day1">
+    <div class="day-head">
+      <div class="day-kicker">
+        <span class="day-num">DAY 1</span>
+        <span class="day-date">11.07 SAT</span>
+        <span class="day-rule"></span>
+      </div>
+      <h2>북녘 앞바다에서 점심, 해 지는 양식장에서 대하</h2>
+    </div>
+    <p class="day-note">북에서 남으로 한 방향입니다 — 교동(북서) → 강화읍 → 양도면 서쪽 해안. 저녁 양식장과 숙소가 <b>직선 2.7km</b>라 대하를 먹고 5분이면 들어가고, 2차는 객실에서 합니다. 강화는 숙소 주변에 술집이 없어 이 구조가 가장 편합니다.</p>
+
+    <div class="timeline">
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">10:00<small>집결</small></div>
+        <div class="body-col">
+          <h3><span class="kind">집결</span>서울역 · 승용차 2대</h3>
+          <p class="why">두 대가 붙어 가야 교동대교 검문이 한 번에 끝납니다.</p>
+          <p class="flag"><b>신분증 8명 전원 필수.</b> 교동도는 민통선 안입니다. 한 명이라도 없으면 그 차는 못 들어갑니다.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 110분</div>
+        <div class="body-col">서울역 → 김포 → 강화대교 → 교동대교 <span class="badge est">추정</span> 토요일 오전 48번 국도 정체 시 +30분</div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">11:50<small>~12:05</small></div>
+        <div class="body-col">
+          <h3><span class="kind">검문</span>교동대교 검문소</h3>
+          <p class="why">해병대 초병에게 신분증을 보이고 연락처를 남기면 차단기가 열립니다. 출입증은 앞유리에 두고 섬을 나올 때 반납합니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>위치</dt><dd>강화군 양사면 교동대교 입구 · <a class="map" href="https://map.naver.com/p/search/교동대교" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=교동대교" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>절차</dt><dd>신분증 확인 + 연락처 · QR 간편등록 도입 <span class="badge ok">확인 2026-09-21</span></dd></div>
+          </dl>
+          <p class="flag"><b>정오는 검문 줄이 가장 긴 시간대입니다.</b> 30분 넘게 밀려 있으면 교동을 건너뛰고 강화읍 조양방직부터 갑니다.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 10분</div>
+        <div class="body-col">검문소 → 대룡리 공영주차장 <span class="badge ok">주차 무료</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">12:15<small>~13:25</small></div>
+        <div class="body-col">
+          <h3><span class="kind">점심</span>대풍식당 · 대룡시장</h3>
+          <p class="why">황해도 연백 실향민들이 고향 장터를 본떠 세운 대룡시장 안에서 2대째 하는 집입니다. 채수로 뽑은 냉면과 국밥 — <b>저녁이 대하라 점심은 가볍게</b>. 먹고 나와 1960~70년대 간판이 남은 골목을 15분 걷습니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 교동면 대룡리 456-1 · <a class="map" href="https://map.naver.com/p/search/대풍식당 교동" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=대풍식당 교동" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>「교동도 대룡시장 맛집」 네이버 블로그 검색에서 상호가 나오는 식당은 이 집이 유일(2020·2025) · 식신 「교동도 현지인 맛집 TOP 6」 상단 <span class="badge ok">네이버 블로그 2026-10-06</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>11:00–</b> · 수요일 휴무 · 마감 시각은 출처마다 다름 <span class="badge ok">토요일 영업</span></dd></div>
+            <div class="op"><dt>전화</dt><dd><a class="tel" href="tel:0329324030">032-932-4030</a> <span class="badge call">8명 한 테이블</span></dd></div>
+            <div class="op"><dt>가격</dt><dd>1인 10,000–14,000원 <span class="badge call">전화 확인</span></dd></div>
+          </dl>
+          <p class="flag"><b>12시는 시장 전체의 피크입니다.</b> 전화로 자리를 잡아두지 않으면 여덟이 흩어져 앉습니다.</p>
+          <details class="alts" open>
+            <summary>자리가 없으면 — 같은 시장 1곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>풍년식당 · 대룡시장</h4>
+                <p>교동 향토음식 젓국갈비. 밴댕이무침·등갈비찜까지 메뉴 폭이 넓습니다. 식신 교동도 TOP 6.</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/풍년식당 교동" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=풍년식당 교동" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 10분</div>
+        <div class="body-col">대룡시장 → 화개산 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">13:35<small>~14:45</small></div>
+        <div class="body-col">
+          <h3><span class="kind">관람</span>화개정원 · 화개산 모노레일</h3>
+          <p class="why">해발 259m 정상까지 <b>모노레일이 앉혀서 올려다 줍니다</b>. 정상 전망대에서 북녘 연백평야와 다도해가 한 화면에 들어옵니다 — 검문까지 받고 들어온 교동도에서 하나를 본다면 여기입니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 교동면 교동동로471번길 6-58 · <a class="map" href="https://map.naver.com/p/search/화개정원" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=화개정원" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>강화군 직영 · 개장 이후 누적 110만 명 <span class="badge est">집계 2026-09-21</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>주말 08:00–20:00</b> (입장 마감 19:00) · 연중무휴 <span class="badge ok">토요일 영업</span></dd></div>
+            <div class="op"><dt>전화</dt><dd><a class="tel" href="tel:0329303151">032-930-3151</a></dd></div>
+            <div class="op"><dt>가격</dt><dd>정원 5,000원 + 모노레일 13,000원 = <b>1인 18,000원</b> <span class="badge ok">확인</span></dd></div>
+          </dl>
+          <p class="flag"><b>강풍·해무면 모노레일이 멈춥니다.</b> 그때는 정원만 30분 돌고 내려오세요. 표는 현장에서 운행 여부를 보고 끊습니다.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 45분</div>
+        <div class="body-col">화개산 → 교동대교(출입증 반납) → 강화읍 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">15:30<small>~16:35</small></div>
+        <div class="body-col">
+          <h3><span class="kind">카페</span>조양방직</h3>
+          <p class="why">1933년 방직공장을 그대로 카페로 쓰는 곳으로, 강화 카페를 검색하면 어디서나 첫 줄에 나옵니다. <b>여덟이 흩어지지 않고 앉을 규모</b>라는 게 이 인원에는 더 중요합니다. 실내가 넓어 바람 불어도 상관없습니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 강화읍 향나무길5번길 12 · <a class="map" href="https://map.naver.com/p/search/조양방직" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=조양방직" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>다이닝코드 ★4.0 · 강화도 Top100 상위 · 「단체석도 많이 있다」(2025-10 후기) <span class="badge est">집계 2026-09-21</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>11:00–21:00</b> · 연중무휴 <span class="badge ok">토요일 영업</span></dd></div>
+          </dl>
+          <details class="alts" open>
+            <summary>시간이 남으면 — 가는 길 1곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>연미정 · 강화읍 월곶리 (가는 길에)</h4>
+                <p>한강과 임진강이 만나 서해로 빠지는 자리의 정자, 건너편이 북한입니다. 교동에서 강화읍으로 오는 길 위라 30분이면 됩니다. 입장 무료, 강 합수부라 바람이 셉니다.</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/연미정" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=연미정" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 30분</div>
+        <div class="body-col">강화읍 → 양도면 능내리 (서쪽 해안) <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">17:05<small>~19:00</small></div>
+        <div class="body-col">
+          <h3><span class="kind">저녁 · 본게임</span>강화왕새우 박문양식장</h3>
+          <p class="why">서쪽 해안 양식장이라 <b>17:31 일몰을 대하 상 앞에서 봅니다</b> — 「해 질 녘 강화 서쪽 양식장에서 노을 보며 새우」라는 후기가 바로 이 구도입니다. 대하철 제철 왕새우 소금구이. <b>여기서는 반주만 가볍게</b> 하고, 제대로 한잔은 숙소 객실에서. 양식장 포장(22시까지)으로 2차 안주를 챙겨 가도 됩니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 양도면 능내리 1026 · 숙소까지 직선 2.7km · <a class="map" href="https://map.naver.com/p/search/강화왕새우 박문양식장" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=강화왕새우 박문양식장" target="_blank" rel="noopener">카카오</a> <span class="badge ok">네이버 지역검색</span></dd></div>
+            <div class="op"><dt>평판</dt><dd>「10월 초 제철 새우구이」 후기(2026-10-06) · 「사장님·직원이 대체로 친절」(2022) · 애견동반 가능 <span class="badge est">네이버 블로그</span></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>매일 10:30–21:00</b> (L.O. 20:00) · 포장 08:00–22:00 <span class="badge ok">후기 2025-10 · 2026-10 일치</span></dd></div>
+            <div class="op"><dt>전화</dt><dd>네이버 플레이스에서 · 11/7 영업·바다 쪽 8명 자리·가격 <span class="badge call">전화</span></dd></div>
+          </dl>
+          <p class="flag"><b>일몰 17:31(계산값)</b> — 바다 쪽 자리가 먼저 찹니다. 17시 전후 도착이 기준이고, 강화읍에서 늦어지면 조양방직을 줄이세요.</p>
+          <details class="alts" open>
+            <summary>바다 쪽 자리가 없으면 1곳 · 시즌이 끝났으면</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>해운정양식장 · 양도면 해안서로 331</h4>
+                <p>같은 서쪽 해안의 대하 양식장. 왕새우 소금구이 1kg 5만원, 홀 10시~·21시 마감, 「일몰 시간에 맞춰 가는」 후기가 있습니다. <span class="badge est">네이버 블로그 2026-10</span></p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/해운정양식장" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=해운정양식장" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+              <div class="alt-item">
+                <h4>대하 시즌이 끝났으면 — 강나루 장어를 저녁으로</h4>
+                <p>둘째 날 점심 갯벌장어를 첫날 저녁으로 당기고(숙소까지 대리 20분), 둘째 날 점심은 나가는 길에 <b>강화섬약쑥한우</b>(선원면 · 3층 룸 · 다이닝코드 ★4.8)로 바꿉니다.</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/강화섬약쑥한우" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=강화섬약쑥한우" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 5분</div>
+        <div class="body-col">양식장 → 숙소 · 대리 또는 콜택시 <span class="badge est">직선 2.7km</span></div>
+      </div>
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">19:15<small>체크인</small></div>
+        <div class="body-col">
+          <h3><span class="kind">숙소 · 2차</span>엘리야 리조트&amp;풀빌라 <span class="badge ok">객실 있음</span></h3>
+          <p class="why">리조트 객실이라 <b>침대와 욕실이 넉넉</b>합니다 — 12명 가족(팔순 잔치)이 디럭스룸에 묵은 후기가 있어 여덟은 충분합니다. 강화 남쪽은 숙소 주변에 술집이 없으니 <b>2차는 객실에서</b>. 양식장에서 포장한 새우와 장 봐 온 것으로 차립니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 화도면 해안남로 2782-24 · <a class="map" href="https://map.naver.com/p/search/엘리야 리조트 강화" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=엘리야 리조트 강화" target="_blank" rel="noopener">카카오</a> <span class="badge ok">네이버 지역검색</span></dd></div>
+            <div class="op"><dt>평판</dt><dd>「디럭스룸 12인 가족여행」(2023) · 그랜드스위트 후기(2023) · 2025년 숙박 후기 <span class="badge est">네이버 블로그</span></dd></div>
+            <div class="op"><dt>예약</dt><dd>객실 있음 <span class="badge ok">은석님 확인 2026-10-06</span><br>객실 구성(8명 침구)·체크인/아웃 시각·주차 2대·객실 음주 <span class="badge call">예약 시 확인</span></dd></div>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════ DAY 2 ═══════════════ -->
+  <section class="day2">
+    <div class="day-head">
+      <div class="day-kicker">
+        <span class="day-num">DAY 2</span>
+        <span class="day-date">11.08 SUN</span>
+        <span class="day-rule"></span>
+      </div>
+      <h2>갯벌 산책, 천년 고찰, 그리고 갯벌장어</h2>
+    </div>
+    <p class="day-note">남쪽 해안도로를 따라 서에서 동으로 한 방향 — 동막해변 → 전등사 → 초지대교 앞 장어집과 카페. 먹고 나와 그대로 다리를 건너 <b>김포공항역</b>에서 헤어집니다. 공항철도로 서울역까지 20분 남짓이라, 차 두 대가 서울 도심까지 들어갈 필요가 없습니다.</p>
+
+    <div class="timeline">
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">10:00<small>체크아웃</small></div>
+        <div class="body-col">
+          <h3><span class="kind">출발</span>느긋하게 일어나 체크아웃</h3>
+          <p class="why">점심이 12시 장어라 <b>아침은 가볍게</b> — 전날 장 볼 때 빵·과일을 같이 사 두세요. 제대로 된 아침을 원하면 리조트에서 차로 2분인 <b>쌈밥이네 강화도본점</b>(해안남로 2674, 10시 오픈 — 평일 기준 후기)이 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 15분</div>
+        <div class="body-col">화도면 → 해안남로 → 동막해변 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">10:15<small>~11:00</small></div>
+        <div class="body-col">
+          <h3><span class="kind">산책</span>동막해변 · 분오리돈대</h3>
+          <p class="why">강화 남단 갯벌이 펼쳐지는 해변입니다. 바로 옆 <b>분오리돈대</b>에 오르면 갯벌과 멀리 인천공항까지 내려다보입니다. 해는 전날 양식장에서 봤으니 여기는 아침 바닷바람 쐬는 산책입니다 — 물때에 따라 <b>물 찬 바다</b>이기도, <b>드러난 갯벌</b>이기도 합니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>위치</dt><dd>강화군 화도면 해안남로 1481 · <a class="map" href="https://map.naver.com/p/search/동막해변" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=동막해변" target="_blank" rel="noopener">카카오</a> <span class="badge ok">네이버 지역검색</span></dd></div>
+            <div class="op"><dt>평판</dt><dd>「분오리돈대에 오르면 강화 남단 갯벌과 인천국제공항을 내려다볼 수 있다」 <span class="badge est">네이버 블로그 2022</span></dd></div>
+            <div class="op"><dt>주차</dt><dd>동막해변 제2공영주차장 96면 <span class="badge est">후기 2026-10</span></dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 10분</div>
+        <div class="body-col">동막 → 길상면 온수리 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">11:10<small>~11:55</small></div>
+        <div class="body-col">
+          <h3><span class="kind">관람</span>전등사</h3>
+          <p class="why">삼랑성 안의 절로, 현존하는 한국 사찰 중 가장 오래됐다고 보는 곳입니다. 11월 초면 성곽길 단풍이 남아 있을 시기입니다. <b>남문 주차장 쪽이 덜 걷습니다.</b></p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 길상면 전등사로 37-41 · <a class="map" href="https://map.naver.com/p/search/전등사" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=전등사" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>강화군 대표 사찰 · 강화군 문화관광 명소 <span class="badge ok">확인</span></dd></div>
+            <div class="op"><dt>가격</dt><dd>관람료 금액·징수 여부 미확인 <span class="badge est">추정</span></dd></div>
+          </dl>
+          <p class="flag">일주문 바로 앞 <b>금풍양조장</b>(삼랑성길 8, 2022 인천시 문화재 · 10:30–18:00)에서 막걸리를 한 병씩 사 가면 돌아가는 손이 비지 않습니다. 일요일 영업은 미확인입니다.</p>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 10분</div>
+        <div class="body-col">전등사 → 초지리 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">12:05<small>~13:25</small></div>
+        <div class="body-col">
+          <h3><span class="kind">점심</span>강나루숯불장어</h3>
+          <p class="why">요청하신 <b>강화 갯벌장어</b>입니다. 강화 갯벌에서 키운 장어를 숯불에 굽는 집으로, 초지대교 바로 앞이라 먹고 나와 그대로 다리를 건넙니다. 건물이 여러 층이라 여덟이 한 상에 앉습니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 길상면 해안남로 92-6 · <a class="map" href="https://map.naver.com/p/search/강나루숯불장어" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=강나루숯불장어" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>평판</dt><dd>다이닝코드 ★4.8 · 강화도 장어구이 상위 · 「2TV 생생정보」 방영 <span class="badge est">집계 2026-09-21</span></dd></div>
+            <div class="op"><dt>전화</dt><dd><a class="tel" href="tel:050713350592">0507-1335-0592</a> <span class="badge call">일요일 영업 · 8명</span></dd></div>
+            <div class="op"><dt>가격</dt><dd>갯벌장어 1인 <b>59,000원</b> <span class="badge ok">은석님 확인 2026-10-06</span></dd></div>
+          </dl>
+          <details class="alts" open>
+            <summary>자리가 없으면 — 1곳</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>원조선창집장어구이 · 같은 권역</h4>
+                <p>1979년 강화 최초 개업, 한국관광공사 「대한민국 구석구석」 등재, 다이닝코드 ★4.4 — 근거가 가장 두꺼운 장어집. <a class="tel" href="tel:0329327628">032-932-7628</a></p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/원조선창집장어구이" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=원조선창집장어구이" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="move">
+        <div class="clock">↓ 5분</div>
+        <div class="body-col">초지리 → 해안동로 <span class="badge est">추정</span></div>
+      </div>
+
+      <div class="stop">
+        <div class="clock">13:35<small>~14:40</small></div>
+        <div class="body-col">
+          <h3><span class="kind">카페</span>아이나 카페</h3>
+          <p class="why">장어 먹고 바로 차에 타면 여덟이 다 졸립니다. 한 시간 앉았다 가는 자리이고, <b>초지대교 바로 옆 오션뷰 대형 카페</b>라 다리까지 5분입니다.</p>
+          <dl class="ops">
+            <div class="op"><dt>주소</dt><dd>강화군 길상면 해안동로 116-12 1~2층 · <a class="map" href="https://map.naver.com/p/search/아이나 카페 강화" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=아이나 카페 강화" target="_blank" rel="noopener">카카오</a></dd></div>
+            <div class="op"><dt>영업</dt><dd><b>주말 10:00–20:30</b> <span class="badge ok">일요일 영업</span></dd></div>
+            <div class="op"><dt>전화</dt><dd><a class="tel" href="tel:050713251326">0507-1325-1326</a> <span class="badge call">단체 예약 가능</span></dd></div>
+          </dl>
+          <details class="alts" open>
+            <summary>자리가 없으면 — 옆집</summary>
+            <div class="alt-list">
+              <div class="alt-item">
+                <h4>더 라두 · 해안동로 112-12 (바로 옆집)</h4>
+                <p>번지가 네 칸 차이라 걸어서 옮깁니다.</p>
+                <p class="alt-meta"><a class="map" href="https://map.naver.com/p/search/더라두 강화" target="_blank" rel="noopener">네이버</a> · <a class="map" href="https://map.kakao.com/?q=더라두 강화" target="_blank" rel="noopener">카카오</a></p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="stop" data-kind="anchor">
+        <div class="clock">14:50<small>출발</small></div>
+        <div class="body-col">
+          <h3><span class="kind">해산</span>초지대교 → 김포공항역 (15:40 전후)</h3>
+          <p class="why">초지대교를 건너 김포를 지나면 김포공항역입니다. 공항철도로 서울역까지 20분 남짓 — 차 두 대는 여기서 사람을 내려주고 각자 집으로 갑니다. <b>서울역까지 차로 가면 30~40분이 더 듭니다.</b> 일요일 오후 강화 진출로는 해가 기울며 막히니 15시 전 출발을 지키세요.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">지금부터 할 일</h2>
+    <p class="sec-note">숙소는 객실이 있는 것만 확인됐습니다. <b>예약 확정이 첫 번째</b>이고, 나머지는 전화로만 확정되는 것들입니다.</p>
+    <div class="checklist" id="checklist">
+      <label class="check">
+        <input type="checkbox" data-key="c1">
+        <span class="check-body">
+          <span class="check-title">1. 엘리야 리조트 — 예약 확정</span>
+          <span class="check-sub">8명 침구가 되는 객실 구성 · 체크인/아웃 시각 · 주차 2대 · 객실에서 2차(음주·간단한 상차림) 가능한지</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c2">
+        <span class="check-body">
+          <span class="check-title">2. 박문양식장 — 11/7(토) 영업 · 바다 쪽 8명</span>
+          <span class="check-sub">네이버 플레이스 번호 · 대하 시즌 마감일 · 1kg 가격 · 막히면 해운정양식장</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c3">
+        <span class="check-body">
+          <span class="check-title">3. 대풍식당 — 토요일 12:15 · 8명 한 테이블</span>
+          <span class="check-sub">032-932-4030 · 안 되면 풍년식당</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c4">
+        <span class="check-body">
+          <span class="check-title">4. 강나루숯불장어 — 일요일 영업 · 8명</span>
+          <span class="check-sub">0507-1335-0592 · 막히면 원조선창집 032-932-7628</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c5">
+        <span class="check-body">
+          <span class="check-title">5. 화개산 모노레일 — 전날 운행</span>
+          <span class="check-sub">032-930-3151 · 강풍·해무 예보면 정원만</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c6">
+        <span class="check-body">
+          <span class="check-title">6. 신분증 8명 전원 공지</span>
+          <span class="check-sub">교동대교 검문소 · 출발 전날 단톡방에 한 번 더</span>
+        </span>
+      </label>
+      <label class="check">
+        <input type="checkbox" data-key="c7">
+        <span class="check-body">
+          <span class="check-title">7. 출발 1주 전 — 날씨</span>
+          <span class="check-sub">강풍이면 모노레일 정지 가능 · 비면 아래 Plan B</span>
+        </span>
+      </label>
+    </div>
+    <div class="packing">
+      <span>신분증 8인분</span>
+      <span>바람막이 · 얇은 패딩</span>
+      <span>2차 장보기 · 빵·과일</span>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">예상 비용</h2>
+    <p class="sec-note">이번 여행의 기준은 <b>비용이 아니라 잘 먹고 편하게 자는 것</b>입니다. 숙박비는 예약 금액이 정해지면 더해 주세요.</p>
+    <div class="cost-wrap">
+      <table class="cost">
+        <thead><tr><th>항목</th><th>8명 기준</th></tr></thead>
+        <tbody>
+          <tr><td>숙소 · 엘리야 리조트</td><td>예약 금액 (별도)</td></tr>
+          <tr><td>점심 · 강나루 갯벌장어 (1인 59,000원)</td><td>50–55만원</td></tr>
+          <tr><td>저녁 · 박문양식장 대하 (반주)</td><td>30–40만원</td></tr>
+          <tr><td>2차 · 객실 (포장 새우·장보기)</td><td>10–15만원</td></tr>
+          <tr><td>화개정원 + 모노레일 (1인 18,000원)</td><td>14.4만원</td></tr>
+          <tr><td>점심 · 대풍식당</td><td>8–11만원</td></tr>
+          <tr><td>카페 2곳</td><td>16–24만원</td></tr>
+          <tr><td>유류 · 통행료 · 주차 (2대)</td><td>10–15만원</td></tr>
+          <tr><td>대리·콜택시 (양식장 → 숙소)</td><td>2–4만원</td></tr>
+          <tr><td>예비 (관람료·간식)</td><td>5–10만원</td></tr>
+          <tr class="total"><td>합계</td><td>145–188만원 + 숙박비</td></tr>
+          <tr class="per"><td>1인</td><td>약 18–24만원 + 숙박비 ÷ 8</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">날씨가 나쁘면</h2>
+    <p class="sec-note">흔들리는 칸은 첫날 모노레일과 둘째 날 동막 산책입니다.</p>
+    <div class="verdict">
+      <h3>바람만 강한 날</h3>
+      <p>모노레일이 멈추면 정원만 30분 돌고 일찍 내려와 연미정을 들르거나 조양방직에 오래 앉습니다. 동막은 분오리돈대만 짧게.</p>
+    </div>
+    <div class="verdict">
+      <h3>비가 오는 날</h3>
+      <p>화개정원 대신 대룡시장 골목(처마가 이어짐)을 길게, 조양방직은 실내라 그대로. 둘째 날은 동막을 빼고 전등사(우산)와 장어·카페만 갑니다. 양식장 일몰은 못 보지만 저녁은 그대로입니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="plain">뺀 것과 그 이유</h2>
+    <p class="sec-note">「확실히 갈 곳은 본선, 갈지 말지 애매한 곳은 대안」으로 짰습니다.</p>
+    <dl class="rule-out">
+      <div class="ro">
+        <dt>강화 루지</dt>
+        <dd>3안에서 빼 달라고 하셨던 곳이라 본선에 넣지 않았습니다. 전등사에서 차로 7분이라, 원하면 둘째 날 동막 대신 넣을 수 있습니다(일 09:00–18:00 · 2회 31,000원 · 홈페이지 예약 30% 할인).</dd>
+      </div>
+      <div class="ro">
+        <dt>강화섬약쑥한우</dt>
+        <dd>다이닝코드 ★4.8 · 3층 룸으로 강화에서 가장 확실한 고기집이지만 선원면(동쪽)이라 남쪽 숙소와 멀어 대리가 30분 걸립니다. <b>대하 시즌이 끝났을 때의 대안</b>으로 둡니다.</dd>
+      </div>
+      <div class="ro">
+        <dt>석모도</dt>
+        <dd>보문사·미네랄온천·낙조가 한 줄에 있지만 하루를 통째로 줘야 제값이 나옵니다. 2박이면 첫 후보입니다.</dd>
+      </div>
+      <div class="ro">
+        <dt>다른 숙소 후보</dt>
+        <dd>한옥 독채 「달에게 빌려온 하루」·「스테이고 만안재」는 11/7 예약 마감, 강화씨사이드리조트는 객실이 없는 레저시설(루지)이었습니다.</dd>
+      </div>
+      <div class="ro">
+        <dt>서울역 해산</dt>
+        <dd>강화에서는 김포공항역이 돌아가는 길목입니다. 서울역까지 차로 가면 30~40분이 더 들어, 공항철도 20분이 낫습니다.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>
+    <div class="legend">
+      <span><span class="badge ok">확인</span> 공식·복수 출처 또는 통화로 확인</span>
+      <span><span class="badge call">전화</span> 전화로 확정 필요</span>
+      <span><span class="badge est">추정</span> 미검증 · 실제와 다를 수 있음</span>
+    </div>
+    <p>이동 시간은 모두 <b>추정치</b>입니다. 출발 전 지도 앱으로 다시 보세요. 특히 첫날 서울역 → 교동대교(약 110분)와 정오 검문 줄이 이 일정의 변수입니다.</p>
+    <p>근거는 네이버 검색 API(블로그·지역, 2026-10-06), 다이닝코드·식신 집계(2026-09-21), 강화군 문화관광, 은석님 확인(숙소 객실·장어 가격)입니다. 일몰 17:31은 계산값입니다. 대하 양식장은 계절 영업이라 10월 말에 다시 확인하세요. 교동도 검문소 운용은 군 사정에 따라 바뀌고, 모노레일은 당일 기상으로 멈춥니다.</p>
+  </footer>
+
+</div>
+<script>
+  (function () {
+    var KEY = "2026-11-07-ganghwa-v2-checklist";
+    var boxes = document.querySelectorAll("#checklist input[type=checkbox]");
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+
+    boxes.forEach(function (box) {
+      if (saved[box.dataset.key]) box.checked = true;
+      box.addEventListener("change", function () {
+        var state = {};
+        boxes.forEach(function (b) { if (b.checked) state[b.dataset.key] = 1; });
+        try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+      });
+    });
+  })();
+</script>
+</body>
+</html>
