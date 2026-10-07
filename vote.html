@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="2026년 11월 7~8일 1박 2일 — 세 가지 안 비교">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>11월 7–8일 어디로 갈까</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Gothic+A1:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground:      #FAF8F4;
+    --surface:     #FFFFFF;
+    --sunk:        #F1EEE7;
+    --ink:         #0E2A2E;
+    --ink-soft:    #3C565B;
+    --muted:       #6E8489;
+    --line:        #DEDAD1;
+    --line-soft:   #EBE7DE;
+    --accent:         #2C5F7C;
+    --accent-deep:    #16394E;
+    --accent-wash:    #E4EDF3;
+    --accent2:      #A5541E;
+    --accent2-wash: #F8EBDE;
+    --warn:        #87680F;
+    --warn-wash:   #F6F0DA;
+    --hero-from:   #16394E;
+    --hero-to:     #2C5F7C;
+    --hero-ink:    #F3F7F6;
+    --hero-dim:    #A9C4D6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0B1618;
+      --surface:     #142124;
+      --sunk:        #0F1C1F;
+      --ink:         #E9EEED;
+      --ink-soft:    #B5C4C5;
+      --muted:       #83989B;
+      --line:        #29393D;
+      --line-soft:   #1D2C30;
+      --accent:         #7FB8D6;
+      --accent-deep:    #10303F;
+      --accent-wash:    #172A33;
+      --accent2:      #E09257;
+      --accent2-wash: #2F2011;
+      --warn:        #D6B65C;
+      --warn-wash:   #2B2514;
+      --hero-from:   #0D2430;
+      --hero-to:     #1B4A63;
+      --hero-ink:    #EAF2F1;
+      --hero-dim:    #9BB8CC;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:      #0B1618;
+    --surface:     #142124;
+    --sunk:        #0F1C1F;
+    --ink:         #E9EEED;
+    --ink-soft:    #B5C4C5;
+    --muted:       #83989B;
+    --line:        #29393D;
+    --line-soft:   #1D2C30;
+    --accent:         #7FB8D6;
+    --accent-deep:    #10303F;
+    --accent-wash:    #172A33;
+    --accent2:      #E09257;
+    --accent2-wash: #2F2011;
+    --warn:        #D6B65C;
+    --warn-wash:   #2B2514;
+    --hero-from:   #0D2430;
+    --hero-to:     #1B4A63;
+    --hero-ink:    #EAF2F1;
+    --hero-dim:    #9BB8CC;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Gothic A1", system-ui, -apple-system, "Malgun Gothic", sans-serif;
+    font-weight: 400;
+    line-height: 1.72;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+  /* ═══════════ 히어로 ═══════════ */
+
+  .hero {
+    background: linear-gradient(160deg, var(--hero-from) 0%, var(--hero-to) 100%);
+    color: var(--hero-ink);
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 0;
+  }
+  .hero-inner { max-width: 800px; margin: 0 auto; padding: 60px 20px 44px; position: relative; z-index: 2; }
+
+  .hero-eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--hero-dim); margin: 0 0 20px;
+  }
+  .hero h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(46px, 13vw, 88px);
+    line-height: 0.98; letter-spacing: -0.04em;
+    margin: 0; color: var(--hero-ink);
+  }
+  .hero h1 .sub {
+    display: flex; align-items: baseline; justify-content: flex-start;
+    gap: 18px; flex-wrap: wrap;
+    font-size: clamp(24px, 6.5vw, 42px);
+    font-weight: 400; letter-spacing: -0.02em;
+    color: var(--hero-dim); margin-top: 6px;
+  }
+  .hero h1 .byline {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: lowercase;
+    color: var(--hero-dim); opacity: 0.8;
+    white-space: nowrap; align-self: flex-end;
+    padding-bottom: 6px;
+  }
+  .hero-date {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(13px, 3.4vw, 16px); letter-spacing: 0.1em;
+    color: var(--hero-ink); margin: 26px 0 0;
+    font-variant-numeric: tabular-nums;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.22);
+    display: inline-block;
+  }
+  .hero-line { font-size: 15.5px; line-height: 1.75; color: var(--hero-dim); margin: 16px 0 0; max-width: 40ch; }
+  .hero-line b { color: var(--hero-ink); font-weight: 500; }
+
+  .hero-wave { display: block; width: 100%; height: 44px; margin-bottom: -1px; }
+
+  /* 팩트 스트립 */
+  .facts {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--line-soft);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .fact { background: var(--ground); padding: 15px 8px; text-align: center; }
+  .fact dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 9.5px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 5px;
+  }
+  .fact dd { margin: 0; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  @media (max-width: 460px) { .facts { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ═══════════ 동선 지도 ═══════════ */
+
+  .mapwrap { padding: 38px 0 10px; }
+  .map-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 12px; flex-wrap: wrap; margin-bottom: 14px;
+  }
+  .map-head h2 {
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px; font-weight: 400;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0;
+  }
+  .map-legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); }
+  .map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .map-legend i { width: 18px; height: 0; border-top-width: 2.5px; border-top-style: solid; display: inline-block; }
+  .lg1 i { border-color: var(--accent); }
+  .lg2 i { border-color: var(--accent2); border-top-style: dashed; }
+
+  .mapbox { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  svg.routemap { display: block; width: 100%; min-width: 460px; height: auto; }
+  .mapnote { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+
+  /* ═══════════ 섹션 ═══════════ */
+
+  section { padding-top: 52px; }
+
+  .day-head { margin-bottom: 4px; }
+  .day-kicker {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+  }
+  .day-num {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; color: var(--surface); background: var(--ink);
+    padding: 4px 11px;
+  }
+  .day2 .day-num { background: var(--accent2); }
+  .day-date {
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    color: var(--muted); font-variant-numeric: tabular-nums; letter-spacing: 0.08em;
+  }
+  .day-rule { flex: 1; height: 1px; background: var(--line); }
+  .day-head h2 {
+    font-family: "Noto Serif KR", Georgia, serif;
+    font-size: clamp(26px, 6vw, 34px); font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1.22; margin: 0;
+    text-wrap: balance;
+  }
+  .day-note { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 16px 0 0; }
+
+  /* ═══════════ 타임라인 ═══════════ */
+
+  .timeline { margin: 30px 0 0; }
+
+  .stop {
+    display: grid; grid-template-columns: 64px 1fr; gap: 20px;
+    position: relative; padding-bottom: 28px;
+  }
+  .stop::before {
+    content: ""; position: absolute; left: 5px; top: 11px; bottom: -5px;
+    width: 1px; background: var(--line);
+  }
+  .stop:last-child::before { display: none; }
+
+  .clock {
+    font-family: "IBM Plex Mono", monospace; font-size: 13px; font-weight: 500;
+    font-variant-numeric: tabular-nums; color: var(--ink);
+    padding-left: 19px; position: relative; padding-top: 1px;
+  }
+  .clock::before {
+    content: ""; position: absolute; left: 0; top: 7px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--ground); border: 2px solid var(--accent);
+  }
+  .day2 .clock::before { border-color: var(--accent2); }
+  .stop[data-kind="move"] .clock::before {
+    border-color: var(--line); width: 7px; height: 7px; left: 2px; top: 9px;
+  }
+  .stop[data-kind="anchor"] .clock::before { background: var(--accent); }
+  .day2 .stop[data-kind="anchor"] .clock::before { background: var(--accent2); }
+  .clock small { display: block; font-size: 11px; color: var(--muted); font-weight: 400; }
+
+  .body-col { padding-top: 0; min-width: 0; }
+
+  .stop h3 { font-size: 19px; font-weight: 700; margin: 0 0 5px; letter-spacing: -0.02em; }
+  .stop h3 .kind {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; font-weight: 400;
+    letter-spacing: 0.1em; color: var(--accent); background: var(--accent-wash);
+    text-transform: uppercase; padding: 2px 7px; border-radius: 2px;
+    margin-right: 9px; vertical-align: 3px;
+  }
+  .day2 .stop h3 .kind { color: var(--accent2); background: var(--accent2-wash); }
+  .why { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 0 0 13px; }
+
+  .stop[data-kind="move"] .body-col { font-size: 13.5px; color: var(--muted); padding-top: 3px; }
+  .stop[data-kind="move"] { padding-bottom: 22px; }
+
+  /* 실무 정보 */
+  .ops {
+    background: var(--surface); border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--accent); padding: 14px 16px; display: grid; gap: 8px;
+    box-shadow: 0 1px 2px rgba(14,42,46,0.04);
+  }
+  .day2 .ops { border-left-color: var(--accent2); }
+
+  .op { display: grid; grid-template-columns: 58px 1fr; gap: 12px; font-size: 13.5px; align-items: start; }
+  .op dt {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); padding-top: 4px;
+  }
+  .op dd { margin: 0; color: var(--ink-soft); overflow-wrap: anywhere; }
+  .op dd b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  a { color: var(--accent); }
+  .day2 a { color: var(--accent2); }
+  a.tel, a.map {
+    font-family: "IBM Plex Mono", monospace; font-size: 12.5px; text-decoration: none;
+    border-bottom: 1px solid currentColor; padding-bottom: 1px; white-space: nowrap;
+  }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* 뱃지 */
+  .badge {
+    display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.06em; padding: 2px 6px; border-radius: 2px;
+    vertical-align: 1px; white-space: nowrap;
+  }
+  .badge.ok   { background: var(--accent-wash);    color: var(--accent); }
+  .badge.call { background: var(--warn-wash);   color: var(--warn); }
+  .badge.est  { background: var(--sunk);        color: var(--muted); }
+  .badge.new  { background: var(--accent2-wash); color: var(--accent2); }
+
+  /* 대안 / 경고 */
+  .alt {
+    font-size: 13px; color: var(--muted); margin: 10px 0 0;
+    padding-left: 13px; border-left: 2px solid var(--line);
+  }
+  .flag {
+    font-size: 13.5px; background: var(--warn-wash); color: var(--ink);
+    padding: 11px 14px; margin: 11px 0 0; border-left: 3px solid var(--warn);
+  }
+  .flag b { color: var(--warn); }
+
+  details.alts { margin-top: 12px; }
+  details.alts summary {
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.04em;
+    color: var(--accent); cursor: pointer; list-style: none; padding: 4px 0;
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .day2 details.alts summary { color: var(--accent2); }
+  details.alts summary::-webkit-details-marker { display: none; }
+  details.alts summary::before {
+    content: "+"; display: inline-block; width: 15px; height: 15px; line-height: 14px;
+    text-align: center; border: 1px solid currentColor; border-radius: 2px; font-size: 12px;
+  }
+  details.alts[open] summary::before { content: "−"; }
+  details.alts summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .alt-list { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); margin-top: 7px; }
+  .alt-item { background: var(--surface); padding: 13px 15px; }
+  .alt-item h4 { font-size: 14.5px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .alt-item h4 .where { font-weight: 400; color: var(--muted); font-size: 12.5px; margin-left: 5px; }
+  .alt-item p { font-size: 13px; line-height: 1.68; color: var(--ink-soft); margin: 0; }
+  .alt-item p.alt-meta { margin-top: 6px; color: var(--muted); font-size: 12.5px; }
+
+  /* ═══════════ 공통 헤딩 ═══════════ */
+
+  h2.plain {
+    font-family: "Noto Serif KR", Georgia, serif;
+    font-size: clamp(22px, 5vw, 27px); font-weight: 700;
+    letter-spacing: -0.028em; margin: 0 0 6px;
+    padding-bottom: 8px; border-bottom: 2px solid var(--ink);
+  }
+  .sec-note { font-size: 15px; line-height: 1.78; color: var(--ink-soft); margin: 15px 0 0; }
+
+  /* 체크리스트 */
+  .checklist { display: grid; gap: 1px; background: var(--line-soft); border: 1px solid var(--line-soft); margin-top: 22px; }
+  .check { display: flex; gap: 14px; align-items: flex-start; background: var(--surface); padding: 15px 17px; cursor: pointer; }
+  .check input {
+    appearance: none; flex: none; width: 19px; height: 19px; margin: 2px 0 0;
+    border: 1.5px solid var(--muted); border-radius: 3px; background: var(--ground);
+    cursor: pointer; position: relative;
+  }
+  .check input:checked { background: var(--accent); border-color: var(--accent); }
+  .check input:checked::after {
+    content: ""; position: absolute; left: 6px; top: 2px; width: 4px; height: 9px;
+    border: solid var(--surface); border-width: 0 2px 2px 0; transform: rotate(42deg);
+  }
+  .check input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .check-body { min-width: 0; flex: 1; }
+  .check-title { font-size: 14.5px; font-weight: 600; margin: 0 0 3px; display: block; letter-spacing: -0.01em; }
+  .check-sub { font-size: 13px; color: var(--muted); margin: 0; display: block; line-height: 1.6; }
+  .check input:checked ~ .check-body .check-title {
+    text-decoration: line-through; color: var(--muted); font-weight: 400;
+  }
+
+  /* 비용 */
+  .cost-wrap { overflow-x: auto; margin-top: 20px; }
+  table.cost { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 340px; }
+  table.cost th, table.cost td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line-soft); }
+  table.cost th {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); font-weight: 400;
+  }
+  table.cost td:last-child, table.cost th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+  table.cost tr.total td { border-top: 2px solid var(--ink); border-bottom: none; font-weight: 700; padding-top: 12px; }
+  table.cost tr.per td { border-bottom: none; color: var(--accent); font-weight: 700; font-size: 16px; padding-top: 3px; }
+
+  /* 판정 블록 */
+  .verdict { background: var(--sunk); padding: 19px 21px; margin-top: 22px; }
+  .verdict h3 { font-family: "Noto Serif KR", Georgia, serif; font-size: 19px; letter-spacing: -0.02em; margin: 0 0 5px; }
+  .verdict p { font-size: 14.5px; line-height: 1.76; color: var(--ink-soft); margin: 0; }
+  .verdict p + p { margin-top: 11px; }
+
+  .rule-out { display: grid; gap: 15px; margin-top: 22px; }
+  .ro {
+    display: grid; grid-template-columns: 132px 1fr; gap: 18px; font-size: 14.5px;
+    padding-bottom: 15px; border-bottom: 1px solid var(--line-soft); line-height: 1.72;
+  }
+  .ro:last-child { border-bottom: none; padding-bottom: 0; }
+  .ro dt { font-weight: 700; letter-spacing: -0.01em; }
+  .ro dd { margin: 0; color: var(--ink-soft); }
+
+  .packing { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .packing span { font-size: 13px; background: var(--surface); border: 1px solid var(--line); padding: 6px 12px; }
+
+  footer {
+    margin-top: 68px; padding: 26px 0 80px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px; line-height: 1.7; color: var(--muted);
+  }
+  footer p { margin: 0 0 7px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+
+  @media (max-width: 560px) {
+    .stop { grid-template-columns: 54px 1fr; gap: 13px; }
+    .clock { font-size: 12.5px; padding-left: 17px; }
+    .op { grid-template-columns: 50px 1fr; gap: 9px; }
+    .ro { grid-template-columns: 1fr; gap: 4px; }
+    .wrap { padding: 0 17px; }
+    .hero-inner { padding: 48px 17px 38px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  /* ---- PDF/인쇄: 배포본용 ---- */
+  @media print {
+    :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    /* 대안 펼침은 CSS 로 불가(Chrome UA 동작) — PDF 빌드에서 open 속성 부여 */
+    details.alts summary { list-style: none; }
+    /* 블록 중간에서 페이지가 끊기지 않게 */
+    .stop, .day-head, details.alts, .routemap { break-inside: avoid; }
+    .day2 { break-before: page; }
+    @page { margin: 12mm 10mm; }
+  }
+</style>
+<style>
+  .plan { background: var(--surface); border: 1px solid var(--line-soft); border-top: 4px solid var(--accent); padding: 20px 20px 18px; margin-top: 22px; }
+  .plan.p2 { border-top-color: #3E6B3A; } .plan.p3 { border-top-color: var(--accent2); }
+  .plan-no { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--muted); margin: 0 0 4px; }
+  .plan h3 { font-family: "Noto Serif KR", Georgia, serif; font-size: 24px; letter-spacing: -0.02em; margin: 0 0 4px; }
+  .plan .tag { font-size: 14.5px; color: var(--ink-soft); margin: 0 0 14px; }
+  .plan .ops { border-left-color: var(--line); box-shadow: none; }
+  .go { display: inline-block; margin-top: 14px; padding: 10px 18px; background: var(--ink); color: var(--surface); text-decoration: none; font-weight: 600; font-size: 14.5px; border-radius: 3px; }
+  .go:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cmp-wrap { overflow-x: auto; margin-top: 20px; }
+  table.cmp { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+  table.cmp th, table.cmp td { text-align: left; vertical-align: top; padding: 10px 10px; border-bottom: 1px solid var(--line-soft); }
+  table.cmp thead th { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.08em; color: var(--muted); font-weight: 400; }
+  table.cmp tbody th { font-weight: 600; white-space: nowrap; color: var(--ink); width: 70px; }
+  .howto { background: var(--sunk); padding: 18px 20px; margin-top: 22px; font-size: 15px; line-height: 1.75; }
+  .howto b { color: var(--ink); }
+</style>
+</head>
+<body>
+
+
+<!-- ═══════════════ 히어로 ═══════════════ -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">친구 여덟 · 늦가을 서해 · 투표</p>
+    <h1>어디로 갈까<span class="sub">세 가지 안<span class="byline">by eskim</span></span></h1>
+    <p class="hero-date">2026. 11. 07 SAT — 11. 08 SUN</p>
+    <p class="hero-line">날짜와 인원은 그대로, 가는 곳만 고릅니다. 세 안 모두 <b>잘 먹고 편하게 자는 것</b>을 기준으로 짰고, 식당·카페는 후기와 영업시간을 확인한 곳만 넣었습니다.</p>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1200 44" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,44 L0,20 C120,4 240,34 360,26 C480,18 600,2 720,10 C840,18 960,38 1080,32 C1140,29 1170,24 1200,20 L1200,44 Z" fill="var(--ground)"/>
+  </svg>
+</header>
+
+<dl class="facts">
+  <div class="fact"><dt>날짜</dt><dd>11/7(토)–8(일)</dd></div>
+  <div class="fact"><dt>인원</dt><dd>8명 · 승용차 2대</dd></div>
+  <div class="fact"><dt>집결</dt><dd>10:00 서울역</dd></div>
+  <div class="fact"><dt>투표 마감</dt><dd>10/11(일)</dd></div>
+</dl>
+
+<div class="wrap">
+
+  <section>
+    <h2 class="plain">세 가지 안</h2>
+    <div class="howto">
+      <b>투표는 카톡방 투표로</b> — 1안·2안·3안 중 하나. 아래 카드에서 「자세한 일정 보기」를 누르면 시간표·식당·지도가 다 나옵니다.<br>
+      <b>마감이 이번 주 일요일(10/11)인 이유</b> — 2안이 뽑히면 강화 숙소를 바로 잡아야 합니다(후보 두 곳이 이미 마감됐습니다). 지금 숙소(운서역, 1·3안)는 10월 말까지 무료 취소라 그 안에 정리합니다.
+    </div>
+    <div class="plan p1">
+      <p class="plan-no">1안</p>
+      <h3>영종도 1박 2일</h3>
+      <p class="tag">운전이 가장 적은 안 — 서울역에서 한 시간</p>
+      <dl class="ops">
+        <div class="op"><dt>첫날</dt><dd>해송쌈밥 → 하나개 데크길 → 공항뷰 카페 → 서해수산 대하 → 숙소 앞 2차</dd></div>
+        <div class="op"><dt>둘째 날</dt><dd>백운닭칼국수 → 예단포 둘레길 → 새 다리 건너 시도 수기해변 → 짱구네 낙지전골</dd></div>
+        <div class="op"><dt>먹는 것</dt><dd>쌈밥 · 대하 · 닭칼국수 · 낙지전골</dd></div>
+        <div class="op"><dt>숙소</dt><dd>니어스테이 (운서역) · <b>예약 완료</b></dd></div>
+        <div class="op"><dt>해산</dt><dd>14시대 운서역 (공항철도로 서울역 약 1시간)</dd></div>
+        <div class="op"><dt>운전</dt><dd>이틀 합쳐 약 2시간 (추정)</dd></div>
+        <div class="op"><dt>변수</dt><dd>서해수산 토요일 저녁 대기 · 11월 바닷바람</dd></div>
+        <div class="op"><dt>1인 예상</dt><dd>약 22–28만원 (숙박 포함)</dd></div>
+      </dl>
+      <a class="go" href="1.html">자세한 일정 보기 →</a>
+    </div>
+    <div class="plan p2">
+      <p class="plan-no">2안</p>
+      <h3>강화도 1박 2일</h3>
+      <p class="tag">가장 강화다운 안 — 북녘 전망과 해 지는 양식장</p>
+      <dl class="ops">
+        <div class="op"><dt>첫날</dt><dd>교동도 대풍식당 → 화개정원 모노레일 → 조양방직 → 박문양식장 대하(일몰) → 리조트에서 2차</dd></div>
+        <div class="op"><dt>둘째 날</dt><dd>동막해변·분오리돈대 → 전등사 → 강나루 갯벌장어 → 아이나 카페</dd></div>
+        <div class="op"><dt>먹는 것</dt><dd>실향민 냉면 · 대하 · 갯벌장어</dd></div>
+        <div class="op"><dt>숙소</dt><dd>엘리야 리조트 (화도면) · 객실 있음, <b>예약은 투표 뒤</b></dd></div>
+        <div class="op"><dt>해산</dt><dd>15시대 김포공항역 (공항철도로 서울역 20분)</dd></div>
+        <div class="op"><dt>운전</dt><dd>이틀 합쳐 약 4시간 (추정)</dd></div>
+        <div class="op"><dt>변수</dt><dd>정오 교동대교 검문 줄 · 모노레일은 강풍에 멈춤</dd></div>
+        <div class="op"><dt>1인 예상</dt><dd>약 18–24만원 + 숙박비</dd></div>
+      </dl>
+      <a class="go" href="2.html">자세한 일정 보기 →</a>
+    </div>
+    <div class="plan p3">
+      <p class="plan-no">3안</p>
+      <h3>강화도 · 영종도 1박 2일</h3>
+      <p class="tag">볼거리가 가장 많은 안 — 두 섬을 하루씩</p>
+      <dl class="ops">
+        <div class="op"><dt>첫날</dt><dd>교동도 대풍식당 → 화개정원 → 전등사 → (김포 경유) 서해수산 대하 → 숙소 앞 2차</dd></div>
+        <div class="op"><dt>둘째 날</dt><dd>백운닭칼국수 → 하나개 데크길 → 해송쌈밥 → 공항뷰 카페</dd></div>
+        <div class="op"><dt>먹는 것</dt><dd>실향민 냉면 · 대하 · 닭칼국수 · 쌈밥</dd></div>
+        <div class="op"><dt>숙소</dt><dd>니어스테이 (운서역) · <b>예약 완료</b></dd></div>
+        <div class="op"><dt>해산</dt><dd>15시대 운서역 (공항철도로 서울역 약 1시간)</dd></div>
+        <div class="op"><dt>운전</dt><dd>이틀 합쳐 약 5시간, 첫날에 4시간 (추정)</dd></div>
+        <div class="op"><dt>변수</dt><dd>교동 검문 줄 + 서해수산 대기 · 첫날 이동이 길다</dd></div>
+        <div class="op"><dt>1인 예상</dt><dd>약 24–30만원 (숙박 포함)</dd></div>
+      </dl>
+      <a class="go" href="3.html">자세한 일정 보기 →</a>
+    </div>
+  </section>
+  <section>
+    <h2 class="plain">한눈에 비교</h2>
+    <p class="sec-note">운전 시간은 지도 앱 경로가 아니라 추정치입니다. 비용은 8명 기준을 나눈 값이고, 2안은 숙박비가 정해지면 더해집니다.</p>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th></th><th>1안 영종도</th><th>2안 강화도</th><th>3안 강화+영종</th></tr></thead>
+        <tbody>
+          <tr><th>운전</th><td>가장 적음 (약 2시간)</td><td>중간 (약 4시간)</td><td>가장 많음 (약 5시간)</td></tr>
+          <tr><th>저녁</th><td>서해수산 대하</td><td>박문양식장 대하 + 일몰</td><td>서해수산 대하</td></tr>
+          <tr><th>별미</th><td>낙지전골</td><td>갯벌장어</td><td>—</td></tr>
+          <tr><th>걷기</th><td>하나개 데크길 · 예단포</td><td>대룡시장 골목 · 동막해변</td><td>하나개 데크길</td></tr>
+          <tr><th>볼거리</th><td>바다 데크길 · 공항뷰 · 새 다리</td><td>북녘 전망 · 일몰 · 갯벌 · 고찰</td><td>북녘 전망 · 고찰 · 바다 데크길 · 공항뷰</td></tr>
+          <tr><th>2차</th><td>숙소 앞 술집 (걸어서)</td><td>리조트 객실</td><td>숙소 앞 술집 (걸어서)</td></tr>
+          <tr><th>숙소</th><td>예약 완료</td><td>투표 뒤 예약</td><td>예약 완료</td></tr>
+          <tr><th>1인</th><td>22–28만</td><td>18–24만 + 숙박</td><td>24–30만</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <div class="legend">
+      <span><span class="badge ok">확인</span> 공식·복수 출처 또는 통화로 확인</span>
+      <span><span class="badge call">전화</span> 전화로 확정 필요</span>
+      <span><span class="badge est">추정</span> 미검증 · 실제와 다를 수 있음</span>
+    </div>
+    <p>세 안 모두 식당·숙소는 「전화로 확정」 단계입니다. 투표로 정해지면 그 안만 예약·확인을 진행합니다.</p>
+  </footer>
+
+</div>
+</body>
+</html>
